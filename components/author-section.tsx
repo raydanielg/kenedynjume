@@ -1,110 +1,292 @@
-import { ImageWithFallback } from "@/components/image-with-fallback"
-import { Reveal, Stagger, StaggerItem } from "@/components/reveal"
+"use client"
 
-const METRICS = [
-  { value: "2,200+", label: "Sales professionals trained" },
-  { value: "160+", label: "Companies worked with" },
-  { value: "5+", label: "Years of experience" },
-]
+import { useRef } from "react"
+import { HugeiconsIcon } from "@hugeicons/react"
+import {
+  ArrowRight01Icon,
+  BookOpen01Icon,
+  Call02Icon,
+  WhatsappIcon,
+} from "@hugeicons/core-free-icons"
+import { TimelineContent } from "@/components/ui/timeline-animation"
+import { VerticalCutReveal } from "@/components/ui/vertical-cut-reveal"
+import { ImageWithFallback } from "@/components/image-with-fallback"
+import { getWhatsAppHref, WHATSAPP_NUMBER } from "@/lib/whatsapp"
+import type { Variants } from "framer-motion"
+
+const revealVariants: Variants = {
+  visible: (i: number) => ({
+    y: 0,
+    opacity: 1,
+    filter: "blur(0px)",
+    transition: { delay: i * 0.4, duration: 0.5 },
+  }),
+  hidden: { filter: "blur(10px)", y: -20, opacity: 0 },
+}
+
+const scaleVariants: Variants = {
+  visible: (i: number) => ({
+    opacity: 1,
+    filter: "blur(0px)",
+    transition: { delay: i * 0.4, duration: 0.5 },
+  }),
+  hidden: { filter: "blur(10px)", opacity: 0 },
+}
 
 const TRAINING_IMAGES = [
-  { src: "/images/training-1.jpg", alt: "Kenedy Njume leading a sales training session" },
-  { src: "/images/training-2.jpg", alt: "Sales professionals at a High Return Consulting workshop" },
-  { src: "/images/training-3.jpg", alt: "Kenedy Njume training a corporate sales team" },
+  {
+    src: "/images/training-2.jpg",
+    alt: "Sales professionals at a High Return Consulting workshop",
+  },
+  {
+    src: "/images/training-3.jpg",
+    alt: "Kenedy Njume training a corporate sales team",
+  },
+  {
+    src: "/images/kenedy-portrait.png",
+    alt: "Professional portrait of Kenedy Njume, Sales Trainer and Founder of High Return Consulting",
+  },
 ]
 
 export function AuthorSection() {
+  const heroRef = useRef<HTMLDivElement>(null)
+  const waHref = getWhatsAppHref() ?? "#order"
+  const telHref = WHATSAPP_NUMBER ? `tel:+${WHATSAPP_NUMBER}` : waHref
+
   return (
-    <section id="about-kenedy" className="scroll-mt-24 bg-mist">
-      <div className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8 lg:py-28">
-        <div className="grid gap-12 lg:grid-cols-[5fr_7fr] lg:gap-20">
-          <Reveal>
-            <div className="relative">
-              <ImageWithFallback
-                src="/images/kenedy-portrait.png"
-                alt="Professional portrait of Kenedy Njume, Sales Trainer and Founder of High Return Consulting"
-                label="Kenedy Njume — portrait"
-                className="aspect-[4/5] w-full rounded-2xl shadow-[0_30px_60px_-30px_rgba(0,0,0,0.4)] ring-1 ring-line"
-                sizes="(max-width: 1024px) 100vw, 42vw"
-              />
-              <div className="absolute bottom-4 left-4 rounded-full bg-white/95 px-4 py-2 shadow-lg backdrop-blur">
-                <p className="text-xs font-bold tracking-[0.15em] text-ink uppercase">
-                  Kenedy Njume
-                </p>
-              </div>
-            </div>
-          </Reveal>
-
-          <div className="flex flex-col justify-center">
-            <Reveal>
-              <p className="text-[11px] font-semibold tracking-[0.28em] text-ash uppercase sm:text-xs">
+    <section id="about-kenedy" className="scroll-mt-24 bg-mist px-4 py-20 lg:py-28">
+      <div className="mx-auto max-w-6xl" ref={heroRef}>
+        <div className="relative">
+          {/* Eyebrow + quick actions */}
+          <div className="absolute -top-3 z-10 flex w-[85%] items-center justify-between sm:-top-2 md:top-0 lg:top-4">
+            <div className="flex items-center gap-2 text-xl">
+              <span className="animate-spin text-navy [animation-duration:4s]">✱</span>
+              <TimelineContent
+                as="span"
+                animationNum={0}
+                timelineRef={heroRef}
+                customVariants={revealVariants}
+                className="text-sm font-medium tracking-[0.15em] text-ash uppercase"
+              >
                 About the author
-              </p>
-              <h2 className="mt-4 text-3xl leading-tight font-extrabold tracking-tight text-ink uppercase sm:text-4xl lg:text-5xl">
-                Mimi ni nani?
-              </h2>
-              <p className="mt-4 text-lg font-bold tracking-tight text-ink">
-                Kenedy Njume
-              </p>
-              <p className="mt-1 text-sm font-medium tracking-wide text-ash">
-                Sales Trainer | Entrepreneur | Founder, High Return Consulting
-              </p>
-            </Reveal>
-
-            <Stagger className="mt-8 grid grid-cols-3 gap-4 border-y border-line py-6">
-              {METRICS.map((m) => (
-                <StaggerItem key={m.label}>
-                  <p className="text-2xl font-extrabold tracking-tight text-navy sm:text-4xl">
-                    {m.value}
-                  </p>
-                  <p className="mt-1 text-[10px] font-semibold tracking-[0.14em] text-ash uppercase sm:text-xs">
-                    {m.label}
-                  </p>
-                </StaggerItem>
+              </TimelineContent>
+            </div>
+            <div className="flex gap-4">
+              {[
+                {
+                  href: waHref,
+                  icon: WhatsappIcon,
+                  label: "Order on WhatsApp",
+                  num: 1,
+                },
+                { href: telHref, icon: Call02Icon, label: "Call Kenedy", num: 2 },
+                {
+                  href: "#the-book",
+                  icon: BookOpen01Icon,
+                  label: "See the book",
+                  num: 3,
+                },
+              ].map((a) => (
+                <TimelineContent
+                  as="a"
+                  key={a.label}
+                  animationNum={a.num}
+                  timelineRef={heroRef}
+                  customVariants={revealVariants}
+                  href={a.href}
+                  target={a.href.startsWith("http") ? "_blank" : undefined}
+                  rel={
+                    a.href.startsWith("http") ? "noopener noreferrer" : undefined
+                  }
+                  aria-label={a.label}
+                  className="flex h-5 w-5 cursor-pointer items-center justify-center rounded-lg border border-line bg-white text-navy transition-colors hover:bg-navy hover:text-white sm:h-6 sm:w-6 md:h-8 md:w-8"
+                >
+                  <HugeiconsIcon icon={a.icon} className="size-3 sm:size-4" strokeWidth={1.75} />
+                </TimelineContent>
               ))}
-            </Stagger>
+            </div>
+          </div>
 
-            <Reveal className="mt-8 space-y-4 text-base leading-relaxed text-ash">
-              <p>
-                Kwa uzoefu wa zaidi ya miaka 5 katika sales, nimefundisha Sales
-                Professionals 2,200+ na kushirikiana na makampuni 160+.
-              </p>
-              <p>
-                Changamoto ya objection handling ni jambo ambalo binafsi
-                nimewahi kulipitia na pia kushuhudia likiwa kikwazo kikubwa kwa
-                wauzaji wengi.
-              </p>
-              <p>
-                Niligundua kuwa wauzaji wengi wanapoteza wateja kwa kukosa
-                majibu na maswali sahihi wanapokutana na objections.
-              </p>
-              <p className="font-medium text-ink">
-                Hilo ndilo lililonihamasisha kuandika kitabu hiki.
-              </p>
-            </Reveal>
+          {/* Notched banner */}
+          <TimelineContent
+            as="figure"
+            animationNum={4}
+            timelineRef={heroRef}
+            customVariants={scaleVariants}
+            className="group relative"
+          >
+            <svg className="h-full w-full" width="100%" height="100%" viewBox="0 0 100 40">
+              <defs>
+                <clipPath id="clip-inverted" clipPathUnits="objectBoundingBox">
+                  <path
+                    d="M0.0998072 1H0.422076H0.749756C0.767072 1 0.774207 0.961783 0.77561 0.942675V0.807325C0.777053 0.743631 0.791844 0.731953 0.799059 0.734076H0.969813C0.996268 0.730255 1.00088 0.693206 0.999875 0.675159V0.0700637C0.999875 0.0254777 0.985045 0.00477707 0.977629 0H0.902473C0.854975 0 0.890448 0.138535 0.850165 0.138535H0.0204424C0.00408849 0.142357 0 0.180467 0 0.199045V0.410828C0 0.449045 0.0136283 0.46603 0.0204424 0.469745H0.0523086C0.0696245 0.471019 0.0735527 0.497877 0.0733523 0.511146V0.915605C0.0723903 0.983121 0.090588 1 0.0998072 1Z"
+                    fill="#D9D9D9"
+                  />
+                </clipPath>
+              </defs>
+              <image
+                clipPath="url(#clip-inverted)"
+                preserveAspectRatio="xMidYMid slice"
+                width="100%"
+                height="100%"
+                href="/images/training-1.jpg"
+              />
+            </svg>
+          </TimelineContent>
+
+          {/* Stats */}
+          <div className="flex flex-wrap items-center justify-between py-3 text-sm lg:justify-start">
+            <TimelineContent
+              as="div"
+              animationNum={5}
+              timelineRef={heroRef}
+              customVariants={revealVariants}
+              className="flex gap-4"
+            >
+              <div className="mb-2 flex items-center gap-2 text-xs sm:text-base">
+                <span className="font-bold text-navy">5+</span>
+                <span className="text-ash">years of experience</span>
+                <span className="text-line">|</span>
+              </div>
+              <div className="mb-2 flex items-center gap-2 text-xs sm:text-base">
+                <span className="font-bold text-navy">2,200+</span>
+                <span className="text-ash">professionals trained</span>
+              </div>
+            </TimelineContent>
+            <div className="right-0 bottom-16 flex flex-row-reverse gap-4 lg:absolute lg:flex-col lg:gap-0">
+              <TimelineContent
+                as="div"
+                animationNum={6}
+                timelineRef={heroRef}
+                customVariants={revealVariants}
+                className="mb-2 flex items-center gap-2 text-2xl sm:text-3xl lg:text-4xl"
+              >
+                <span className="font-semibold text-navy">160+</span>
+                <span className="text-ash uppercase">companies</span>
+              </TimelineContent>
+            </div>
           </div>
         </div>
 
-        <Stagger className="mt-16 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        {/* Main content */}
+        <div className="grid gap-8 md:grid-cols-3">
+          <div className="md:col-span-2">
+            <h1 className="mb-8 text-2xl !leading-[110%] font-semibold tracking-tight text-ink sm:text-4xl md:text-5xl">
+              <VerticalCutReveal
+                splitBy="words"
+                staggerDuration={0.12}
+                staggerFrom="first"
+                transition={{
+                  type: "spring",
+                  stiffness: 250,
+                  damping: 30,
+                  delay: 0.4,
+                }}
+              >
+                Mimi ni nani?
+              </VerticalCutReveal>
+            </h1>
+
+            <TimelineContent
+              as="div"
+              animationNum={9}
+              timelineRef={heroRef}
+              customVariants={revealVariants}
+              className="grid gap-8 text-ash md:grid-cols-2"
+            >
+              <div className="text-xs sm:text-base">
+                <p className="text-justify leading-relaxed">
+                  Kwa uzoefu wa zaidi ya miaka 5 katika sales, nimefundisha Sales
+                  Professionals 2,200+ na kushirikiana na makampuni 160+.
+                </p>
+                <p className="mt-4 text-justify leading-relaxed">
+                  Changamoto ya objection handling ni jambo ambalo binafsi
+                  nimewahi kulipitia na pia kushuhudia likiwa kikwazo kikubwa
+                  kwa wauzaji wengi.
+                </p>
+              </div>
+              <div className="text-xs sm:text-base">
+                <p className="text-justify leading-relaxed">
+                  Niligundua kuwa wauzaji wengi wanapoteza wateja kwa kukosa
+                  majibu na maswali sahihi wanapokutana na objections.
+                </p>
+                <p className="mt-4 text-justify leading-relaxed font-medium text-ink">
+                  Hilo ndilo lililonihamasisha kuandika kitabu hiki.
+                </p>
+              </div>
+            </TimelineContent>
+          </div>
+
+          <div className="md:col-span-1">
+            <div className="text-left md:text-right">
+              <TimelineContent
+                as="div"
+                animationNum={12}
+                timelineRef={heroRef}
+                customVariants={revealVariants}
+                className="mb-2 text-2xl font-bold text-navy"
+              >
+                KENEDY NJUME
+              </TimelineContent>
+              <TimelineContent
+                as="div"
+                animationNum={13}
+                timelineRef={heroRef}
+                customVariants={revealVariants}
+                className="mb-8 text-sm text-ash"
+              >
+                Sales Trainer | Entrepreneur | Founder, High Return Consulting
+              </TimelineContent>
+
+              <TimelineContent
+                as="div"
+                animationNum={14}
+                timelineRef={heroRef}
+                customVariants={revealVariants}
+                className="mb-6"
+              >
+                <p className="mb-4 font-medium text-ink">
+                  Uko tayari kuacha kupoteza deals kwa sababu ya objections?
+                </p>
+              </TimelineContent>
+
+              <TimelineContent
+                as="a"
+                animationNum={15}
+                timelineRef={heroRef}
+                customVariants={revealVariants}
+                href={waHref}
+                target={waHref.startsWith("http") ? "_blank" : undefined}
+                rel={waHref.startsWith("http") ? "noopener noreferrer" : undefined}
+                className="flex w-fit cursor-pointer gap-2 rounded-lg border border-navy bg-navy px-5 py-3 font-semibold text-white shadow-lg shadow-navy/30 transition-all duration-300 ease-in-out hover:gap-4 hover:bg-navy-deep md:ml-auto"
+              >
+                AGIZA KITABU
+                <HugeiconsIcon icon={ArrowRight01Icon} className="size-5" strokeWidth={2} />
+              </TimelineContent>
+            </div>
+          </div>
+        </div>
+
+        {/* Training gallery */}
+        <div className="mt-16 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {TRAINING_IMAGES.map((img, i) => (
-            <StaggerItem
+            <TimelineContent
+              as="div"
               key={img.src}
-              className={i === 0 ? "sm:col-span-2 lg:col-span-2" : ""}
+              animationNum={16 + i}
+              timelineRef={heroRef}
+              customVariants={revealVariants}
             >
               <ImageWithFallback
                 src={img.src}
                 alt={img.alt}
                 label={`Training photo ${i + 1}`}
                 className="aspect-[4/3] w-full rounded-2xl shadow-sm ring-1 ring-line"
-                sizes={
-                  i === 0
-                    ? "(max-width: 640px) 100vw, 66vw"
-                    : "(max-width: 640px) 100vw, 33vw"
-                }
+                sizes="(max-width: 640px) 100vw, 33vw"
               />
-            </StaggerItem>
+            </TimelineContent>
           ))}
-        </Stagger>
+        </div>
       </div>
     </section>
   )

@@ -42,7 +42,9 @@ export function WhatsAppButton({
       size: "large",
       fullWidth,
     }),
-    "gap-2.5 px-7 text-sm font-semibold tracking-[0.08em] uppercase transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg",
+    "group gap-2.5 px-7 text-sm font-semibold tracking-[0.08em] uppercase [&_svg]:transition-transform [&_svg]:duration-300 hover:[&_svg]:translate-x-0.5",
+    variant === "light" &&
+      "hover:!bg-white hover:!text-[#062b49] hover:!fill-[#062b49] hover:!border-white/60 hover:!shadow-[0_18px_36px_-14px_rgba(255,255,255,0.35)]",
     className
   )
 

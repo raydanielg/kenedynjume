@@ -18,9 +18,9 @@ const sizes = [
 
 const types = {
   primary:
-    "bg-[#062b49] hover:bg-[#0a3658] text-white fill-white",
+    "relative overflow-hidden bg-[#062b49] text-white fill-white hover:bg-[#0a3658] hover:-translate-y-0.5 hover:shadow-[0_18px_36px_-14px_rgba(6,43,73,0.65)] after:absolute after:inset-0 after:-translate-x-[120%] after:skew-x-12 after:bg-gradient-to-r after:from-transparent after:via-white/20 after:to-transparent after:transition-transform after:duration-700 hover:after:translate-x-[120%] active:translate-y-0",
   secondary:
-    "bg-white hover:bg-[#062b49]/5 text-[#062b49] fill-[#062b49] border border-[#062b49]/30",
+    "relative overflow-hidden bg-white text-[#062b49] fill-[#062b49] border border-[#062b49]/30 hover:bg-[#062b49] hover:text-white hover:fill-white hover:border-[#062b49] hover:-translate-y-0.5 hover:shadow-[0_18px_36px_-14px_rgba(6,43,73,0.5)] after:absolute after:inset-0 after:-translate-x-[120%] after:skew-x-12 after:bg-gradient-to-r after:from-transparent after:via-white/10 after:to-transparent after:transition-transform after:duration-700 hover:after:translate-x-[120%] active:translate-y-0",
   tertiary:
     "bg-white dark:bg-[#171717] hover:bg-[#00000014] dark:hover:bg-[#ffffff17] text-[#171717] dark:text-[#ededed] fill-[#171717] dark:fill-[#ededed]",
   error:
@@ -88,7 +88,7 @@ export function buttonClasses({
   | "fullWidth"
   | "className"
 >) {
-  return `inline-flex justify-center items-center gap-0.5 font-medium duration-150 ${sizes[+svgOnly][size]} ${
+  return `inline-flex justify-center items-center gap-0.5 font-medium transition-all duration-300 ${sizes[+svgOnly][size]} ${
     disabled || loading
       ? "bg-[#f2f2f2] dark:bg-[#1a1a1a] text-[#8f8f8f] fill-[#8f8f8f] border border-[#ebebeb] dark:border-[#2e2e2e] cursor-not-allowed"
       : types[type]

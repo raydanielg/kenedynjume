@@ -4,9 +4,18 @@ import { WhatsAppButton } from "@/components/whatsapp-button"
 import { Reveal, Stagger, StaggerItem } from "@/components/reveal"
 
 const STEPS = [
-  "Bonyeza kitufe cha WhatsApp.",
-  "Tuma ujumbe wa kuagiza kitabu.",
-  "Pata maelekezo ya malipo na upokeaji wa kitabu.",
+  {
+    name: "Bonyeza kitufe cha WhatsApp",
+    sub: "Utaelekezwa moja kwa moja kwa Kenedy",
+  },
+  {
+    name: "Tuma ujumbe wa kuagiza kitabu",
+    sub: "Ujumbe umeshaandaliwa tayari — tuma tu",
+  },
+  {
+    name: "Pata maelekezo ya malipo na upokeaji",
+    sub: "Lipa na upokee kitabu chako",
+  },
 ]
 
 export function PricingSection() {
@@ -71,16 +80,26 @@ export function PricingSection() {
             </div>
           </Reveal>
 
-          <Stagger className="mt-14 space-y-0">
+          <Stagger className="mt-14">
             {STEPS.map((step, i) => (
-              <StaggerItem key={step}>
-                <div className="flex items-center gap-5 border-t border-white/15 py-5 last:border-b">
-                  <span className="font-display text-2xl text-white/40 italic tabular-nums">
-                    {String(i + 1).padStart(2, "0")}
-                  </span>
-                  <p className="text-sm font-medium text-white/90 sm:text-base">
-                    {step}
-                  </p>
+              <StaggerItem key={step.name}>
+                <div className="flex">
+                  <div className="flex flex-col items-center">
+                    <span className="grid size-7 shrink-0 place-items-center rounded-full bg-white/10 font-mono text-xs font-semibold text-white ring-1 ring-white/25">
+                      {i + 1}
+                    </span>
+                    {i < STEPS.length - 1 && (
+                      <span className="w-[1.5px] grow bg-white/15" aria-hidden />
+                    )}
+                  </div>
+                  <div className="ml-4 pb-7">
+                    <p className="text-sm font-semibold text-white sm:text-base">
+                      {step.name}
+                    </p>
+                    <p className="mt-1 text-xs text-white/50 sm:text-sm">
+                      {step.sub}
+                    </p>
+                  </div>
                 </div>
               </StaggerItem>
             ))}

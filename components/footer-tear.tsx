@@ -45,7 +45,7 @@ export function FooterTear() {
             { label: "The Problem", href: "#the-problem" },
             { label: "The Book", href: "#the-book" },
           ],
-          cta: { label: "order.", href: wa },
+          cta: { label: "order.", href: "#order" },
         },
         {
           title: "more",
@@ -59,8 +59,8 @@ export function FooterTear() {
       ]}
       chat={{ label: "agiza — tsh 30,000", href: wa }}
       sideLinks={[
-        { icon: "shield", label: "privacy", href: "#" },
-        { icon: "doc", label: "terms", href: "#" },
+        { icon: "doc", label: "kitabu", href: "#the-book" },
+        { icon: "chat", label: "whatsapp", href: wa },
       ]}
       copyright={`© ${year} Kenedy Njume — High Return Consulting`}
       credit="learn. handle. close."

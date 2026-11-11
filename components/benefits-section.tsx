@@ -1,41 +1,42 @@
+import { HugeiconsIcon } from "@hugeicons/react"
 import {
-  Clock,
-  MessageCircleQuestion,
-  ShieldCheck,
-  Tag,
-  TrendingUp,
-  Users,
-} from "lucide-react"
+  Clock01Icon,
+  MessageQuestionIcon,
+  ShieldCheckIcon,
+  Tag01Icon,
+  TrendingUpIcon,
+  UserGroupIcon,
+} from "@hugeicons/core-free-icons"
 import { Reveal, Stagger, StaggerItem } from "@/components/reveal"
 
 const BENEFITS = [
   {
-    icon: Tag,
+    icon: Tag01Icon,
     title: "Handle price objections",
     text: "Jifunze namna ya kujibu wateja wanaosema bei yako iko juu.",
   },
   {
-    icon: ShieldCheck,
+    icon: ShieldCheckIcon,
     title: "Respond with confidence",
     text: "Jenga ujasiri unapokutana na objections.",
   },
   {
-    icon: MessageCircleQuestion,
+    icon: MessageQuestionIcon,
     title: "Ask better questions",
     text: "Jifunze maswali yanayokusaidia kuelewa sababu halisi ya mteja kusita.",
   },
   {
-    icon: Users,
+    icon: UserGroupIcon,
     title: "Handle competitor objections",
     text: "Jifunze namna ya kuzungumza na wateja wenye supplier mwingine.",
   },
   {
-    icon: Clock,
+    icon: Clock01Icon,
     title: "Overcome hesitation",
     text: "Shughulikia wateja wanaosema wanahitaji muda wa kufikiria.",
   },
   {
-    icon: TrendingUp,
+    icon: TrendingUpIcon,
     title: "Close more deals",
     text: "Boresha mazungumzo yako ya mauzo na kuongeza uwezo wako wa ku-convert prospects.",
   },
@@ -59,7 +60,7 @@ export function BenefitsSection() {
             <StaggerItem key={b.title}>
               <article className="group h-full rounded-2xl border border-line bg-white p-5 transition-all duration-300 hover:-translate-y-1 hover:border-navy hover:shadow-[0_24px_40px_-24px_rgba(0,0,0,0.25)] sm:p-7">
                 <span className="flex size-11 items-center justify-center rounded-full bg-[#062b49]/10 text-navy transition-transform duration-300 group-hover:scale-110">
-                  <b.icon className="size-5" strokeWidth={1.75} />
+                  <HugeiconsIcon icon={b.icon} className="size-5" strokeWidth={1.75} />
                 </span>
                 <h3 className="mt-6 text-sm font-extrabold tracking-tight text-ink uppercase sm:text-base">
                   {b.title}

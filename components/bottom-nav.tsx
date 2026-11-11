@@ -2,15 +2,22 @@
 
 import { useEffect, useState } from "react"
 import Link from "next/link"
-import { AlertCircle, BookOpen, Home, ShoppingBag, UserRound } from "lucide-react"
+import { HugeiconsIcon } from "@hugeicons/react"
+import {
+  AlertCircleIcon,
+  BookOpen01Icon,
+  Home01Icon,
+  ShoppingBag02Icon,
+  UserCircleIcon,
+} from "@hugeicons/core-free-icons"
 import { cn } from "@/lib/utils"
 import { getWhatsAppHref } from "@/lib/whatsapp"
 
 const ITEMS = [
-  { id: "home", label: "Home", icon: Home },
-  { id: "the-problem", label: "Objections", icon: AlertCircle },
-  { id: "the-book", label: "Kitabu", icon: BookOpen },
-  { id: "about-kenedy", label: "About", icon: UserRound },
+  { id: "home", label: "Home", icon: Home01Icon },
+  { id: "the-problem", label: "Objections", icon: AlertCircleIcon },
+  { id: "the-book", label: "Kitabu", icon: BookOpen01Icon },
+  { id: "about-kenedy", label: "About", icon: UserCircleIcon },
 ]
 
 export function BottomNav() {
@@ -47,7 +54,8 @@ export function BottomNav() {
             aria-current={active === item.id ? "page" : undefined}
             className="flex min-h-[56px] min-w-[64px] flex-col items-center justify-center gap-1 py-2 transition-colors"
           >
-            <item.icon
+            <HugeiconsIcon
+              icon={item.icon}
               className={cn(
                 "size-5 transition-colors",
                 active === item.id ? "text-navy" : "text-ash/70"
@@ -74,7 +82,7 @@ export function BottomNav() {
             className="my-auto flex min-w-[72px] flex-col items-center gap-1"
           >
             <span className="flex size-11 items-center justify-center rounded-full bg-navy text-white shadow-[0_10px_24px_-8px_rgba(0,0,0,0.5)] transition-transform active:scale-95">
-              <ShoppingBag className="size-5" strokeWidth={2} />
+              <HugeiconsIcon icon={ShoppingBag02Icon} className="size-5" strokeWidth={2} />
             </span>
             <span className="text-[10px] font-bold tracking-wide text-navy">
               Agiza
@@ -83,7 +91,7 @@ export function BottomNav() {
         ) : (
           <span className="my-auto flex min-w-[72px] flex-col items-center gap-1">
             <span className="flex size-11 items-center justify-center rounded-full bg-navy/50 text-white">
-              <ShoppingBag className="size-5" strokeWidth={2} />
+              <HugeiconsIcon icon={ShoppingBag02Icon} className="size-5" strokeWidth={2} />
             </span>
             <span className="text-[10px] font-bold tracking-wide text-ash">
               Agiza

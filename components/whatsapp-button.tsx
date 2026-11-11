@@ -1,4 +1,8 @@
-import { ArrowRight, MessageCircle } from "lucide-react"
+import { HugeiconsIcon } from "@hugeicons/react"
+import {
+  ArrowRight01Icon,
+  WhatsappIcon,
+} from "@hugeicons/core-free-icons"
 import { cn } from "@/lib/utils"
 import { getWhatsAppHref } from "@/lib/whatsapp"
 import { buttonClasses } from "@/components/ui/button"
@@ -28,8 +32,8 @@ export function WhatsAppButton({
 }) {
   const href = getWhatsAppHref()
 
-  const Icon =
-    icon === "arrow" ? ArrowRight : icon === "whatsapp" ? MessageCircle : null
+  const iconData =
+    icon === "arrow" ? ArrowRight01Icon : icon === "whatsapp" ? WhatsappIcon : null
 
   const classes = cn(
     buttonClasses({
@@ -55,7 +59,7 @@ export function WhatsAppButton({
           aria-disabled="true"
         >
           {label}
-          {Icon && <Icon className="size-4" />}
+          {iconData && <HugeiconsIcon icon={iconData} className="size-4" />}
         </span>
         <span className="font-mono text-[11px] tracking-normal text-ash normal-case">
           Dev: set NEXT_PUBLIC_WHATSAPP_NUMBER
@@ -78,7 +82,7 @@ export function WhatsAppButton({
         className={classes}
       >
         {label}
-        {Icon && <Icon className="size-4" />}
+        {iconData && <HugeiconsIcon icon={iconData} className="size-4" />}
       </a>
       {devNote && (
         <span className="text-[11px] tracking-normal text-ash normal-case">

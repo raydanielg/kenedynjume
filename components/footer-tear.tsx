@@ -10,15 +10,19 @@ export function FooterTear() {
       brand="20 objections."
       name="kenedy njume"
       logo={
-        <span
+        // eslint-disable-next-line @next/next/no-img-element
+        <img
+          src="/images/logo-icon.png"
+          alt="20 Objections"
           style={{
-            fontSize: "1.5em",
-            fontWeight: 800,
-            letterSpacing: "0.14em",
+            width: "3.2em",
+            height: "3.2em",
+            objectFit: "contain",
+            borderRadius: "0.7em",
+            background: "#ffffff",
+            padding: "0.35em",
           }}
-        >
-          20
-        </span>
+        />
       }
       logoHref="#home"
       sheet="#062b49"

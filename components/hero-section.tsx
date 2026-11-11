@@ -1,7 +1,8 @@
 "use client"
 
 import { motion, useReducedMotion } from "framer-motion"
-import { Check } from "lucide-react"
+import { HugeiconsIcon } from "@hugeicons/react"
+import { Tick02Icon } from "@hugeicons/core-free-icons"
 import { BookMockup } from "@/components/book-mockup"
 import { WhatsAppButton } from "@/components/whatsapp-button"
 import { buttonClasses } from "@/components/ui/button"
@@ -98,7 +99,7 @@ export function HeroSection() {
                 className="flex items-center gap-3 text-sm font-medium text-ink"
               >
                 <span className="flex size-5 items-center justify-center rounded-full bg-mist">
-                  <Check className="size-3 text-navy" strokeWidth={3} />
+                  <HugeiconsIcon icon={Tick02Icon} className="size-3 text-navy" strokeWidth={3} />
                 </span>
                 {item}
               </li>

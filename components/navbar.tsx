@@ -2,7 +2,12 @@
 
 import { useEffect, useState } from "react"
 import Link from "next/link"
-import { ArrowRight, BookOpen, Menu } from "lucide-react"
+import Image from "next/image"
+import { HugeiconsIcon } from "@hugeicons/react"
+import {
+  ArrowRight01Icon,
+  Menu01Icon,
+} from "@hugeicons/core-free-icons"
 import { cn } from "@/lib/utils"
 import { getWhatsAppHref } from "@/lib/whatsapp"
 import {
@@ -46,10 +51,17 @@ export function Navbar() {
       <nav className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
         <Link
           href="#home"
-          className="flex items-center gap-2 text-sm font-extrabold tracking-[0.22em] text-ink uppercase"
+          aria-label="20 Objections That Cost You Sales — home"
+          className="flex items-center"
         >
-          <BookOpen className="size-4 lg:hidden" strokeWidth={2.25} />
-          20 <span className="text-ash">Objections</span>
+          <Image
+            src="/images/logo-mark.png"
+            alt="20 Objections That Cost You Sales"
+            width={1476}
+            height={700}
+            priority
+            className="h-8 w-auto sm:h-9"
+          />
         </Link>
 
         <ul className="hidden items-center gap-8 lg:flex">
@@ -80,7 +92,7 @@ export function Navbar() {
               })}
             >
               Get the book — TSh 30,000
-              <ArrowRight className="size-3.5" />
+              <HugeiconsIcon icon={ArrowRight01Icon} className="size-3.5" />
             </a>
           ) : (
             <span className="hidden items-center gap-2 rounded-full bg-navy/60 px-5 py-2.5 text-xs font-semibold tracking-[0.08em] text-white uppercase sm:inline-flex">
@@ -95,7 +107,7 @@ export function Navbar() {
                 className="inline-flex size-10 items-center justify-center rounded-full border border-line text-ink lg:hidden"
                 aria-label="Open menu"
               >
-                <Menu className="size-5" />
+                <HugeiconsIcon icon={Menu01Icon} className="size-5" />
               </button>
             </SheetTrigger>
             <SheetContent side="right" className="w-[85vw] max-w-sm bg-white">
@@ -133,7 +145,7 @@ export function Navbar() {
                     })}
                   >
                     Get the book — TSh 30,000
-                    <ArrowRight className="size-4" />
+                    <HugeiconsIcon icon={ArrowRight01Icon} className="size-4" />
                   </a>
                 ) : (
                   <p className="font-mono text-xs text-ash">

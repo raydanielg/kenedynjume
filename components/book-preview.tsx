@@ -3,13 +3,14 @@
 import * as React from "react"
 import { createPortal } from "react-dom"
 import Image from "next/image"
+import { HugeiconsIcon } from "@hugeicons/react"
 import {
-  BookOpen,
-  ChevronLeft,
-  ChevronRight,
-  Quote,
-  X,
-} from "lucide-react"
+  ArrowLeft01Icon,
+  ArrowRight01Icon,
+  BookOpen01Icon,
+  Cancel01Icon,
+  QuoteUpIcon,
+} from "@hugeicons/core-free-icons"
 import { getWhatsAppHref } from "@/lib/whatsapp"
 import { cn } from "@/lib/utils"
 
@@ -220,7 +221,7 @@ function PreviewOverlay({ onClose }: { onClose: () => void }) {
           <PageHead label={`Sura · ${o.n}`} />
           <div className="flex-1 px-5 py-5 sm:px-7">
             <div className="flex items-center justify-between">
-              <Quote className="size-5 text-navy" strokeWidth={1.5} />
+              <HugeiconsIcon icon={QuoteUpIcon} className="size-5 text-navy" strokeWidth={1.5} />
               <span className="font-mono text-[10px] text-ash">
                 OBJECTION {o.n}
               </span>
@@ -356,7 +357,7 @@ function PreviewOverlay({ onClose }: { onClose: () => void }) {
       {/* header */}
       <header className="flex h-14 shrink-0 items-center justify-between border-b border-line px-4 sm:px-6">
         <div className="flex items-center gap-3">
-          <BookOpen className="size-4 text-navy" strokeWidth={2} />
+          <HugeiconsIcon icon={BookOpen01Icon} className="size-4 text-navy" strokeWidth={2} />
           <p className="text-[11px] font-bold tracking-[0.22em] text-ink uppercase sm:text-xs">
             20 Objections — <span className="text-navy">Dukizo</span>
           </p>
@@ -367,7 +368,7 @@ function PreviewOverlay({ onClose }: { onClose: () => void }) {
           aria-label="Funga dukizo"
           className="grid size-10 place-items-center rounded-full border border-line text-ink transition-colors hover:border-navy hover:text-navy"
         >
-          <X className="size-5" />
+          <HugeiconsIcon icon={Cancel01Icon} className="size-5" />
         </button>
       </header>
 
@@ -399,7 +400,7 @@ function PreviewOverlay({ onClose }: { onClose: () => void }) {
           </FlipBook>
         ) : (
           <div className="flex flex-col items-center gap-3 text-ash">
-            <BookOpen className="size-8 animate-pulse text-navy" strokeWidth={1.5} />
+            <HugeiconsIcon icon={BookOpen01Icon} className="size-8 animate-pulse text-navy" strokeWidth={1.5} />
             <p className="text-xs font-semibold tracking-[0.2em] uppercase">
               Inafungua dukizo…
             </p>
@@ -416,7 +417,7 @@ function PreviewOverlay({ onClose }: { onClose: () => void }) {
           aria-label="Ukurasa uliopita"
           className="grid size-11 place-items-center rounded-full border border-line text-ink transition-colors enabled:hover:border-navy enabled:hover:text-navy disabled:opacity-30"
         >
-          <ChevronLeft className="size-5" />
+          <HugeiconsIcon icon={ArrowLeft01Icon} className="size-5" />
         </button>
         <p className="min-w-16 text-center font-mono text-xs text-ash">
           <span className="font-bold text-navy">{page + 1}</span> / {PAGES}
@@ -428,7 +429,7 @@ function PreviewOverlay({ onClose }: { onClose: () => void }) {
           aria-label="Ukurasa unaofuata"
           className="grid size-11 place-items-center rounded-full border border-line text-ink transition-colors enabled:hover:border-navy enabled:hover:text-navy disabled:opacity-30"
         >
-          <ChevronRight className="size-5" />
+          <HugeiconsIcon icon={ArrowRight01Icon} className="size-5" />
         </button>
       </footer>
     </div>
@@ -467,7 +468,7 @@ export function BookPreview({
             className
           )}
         >
-          <BookOpen className="size-4" />
+          <HugeiconsIcon icon={BookOpen01Icon} className="size-4" />
           SOMA DUKIZO
         </button>
       )}

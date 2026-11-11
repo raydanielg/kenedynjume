@@ -2,7 +2,15 @@
 
 import { useEffect, useState } from "react"
 import { AnimatePresence, motion } from "framer-motion"
-import { Check, Compass, Download, Plus, Share, X } from "lucide-react"
+import { HugeiconsIcon } from "@hugeicons/react"
+import {
+  Cancel01Icon,
+  CompassIcon,
+  Download01Icon,
+  PlusIcon,
+  Share08Icon,
+  Tick02Icon,
+} from "@hugeicons/core-free-icons"
 import { buttonClasses } from "@/components/ui/button"
 
 const DISMISS_KEY = "20o-install-dismissed"
@@ -13,10 +21,10 @@ interface BeforeInstallPromptEvent extends Event {
 }
 
 const IOS_STEPS = [
-  { icon: Compass, text: "Fungua website kupitia Safari." },
-  { icon: Share, text: "Bonyeza Share." },
-  { icon: Plus, text: "Chagua Add to Home Screen." },
-  { icon: Check, text: "Bonyeza Add." },
+  { icon: CompassIcon, text: "Fungua website kupitia Safari." },
+  { icon: Share08Icon, text: "Bonyeza Share." },
+  { icon: PlusIcon, text: "Chagua Add to Home Screen." },
+  { icon: Tick02Icon, text: "Bonyeza Add." },
 ]
 
 export function InstallPrompt() {
@@ -86,12 +94,13 @@ export function InstallPrompt() {
               aria-label="Close install prompt"
               className="absolute top-3 right-3 flex size-8 items-center justify-center rounded-full text-ash transition-colors hover:bg-mist hover:text-ink"
             >
-              <X className="size-4" />
+              <HugeiconsIcon icon={Cancel01Icon} className="size-4" />
             </button>
 
             <div className="flex items-center gap-3">
-              <span className="flex size-11 shrink-0 items-center justify-center rounded-xl bg-navy text-sm font-extrabold text-white">
-                20
+              <span className="flex size-11 shrink-0 items-center justify-center overflow-hidden rounded-xl border border-line bg-white p-1">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src="/images/logo-icon.png" alt="" className="h-full w-full object-contain" />
               </span>
               <div>
                 <p className="text-sm font-bold tracking-tight text-ink">
@@ -111,7 +120,7 @@ export function InstallPrompt() {
                     className="flex items-center gap-3 text-sm text-ink"
                   >
                     <span className="flex size-7 shrink-0 items-center justify-center rounded-full bg-mist">
-                      <step.icon className="size-3.5 text-ink" strokeWidth={2} />
+                      <HugeiconsIcon icon={step.icon} className="size-3.5 text-ink" strokeWidth={2} />
                     </span>
                     <span>
                       <span className="mr-1.5 font-mono text-xs text-ash">
@@ -134,7 +143,7 @@ export function InstallPrompt() {
                   className: "mt-4 gap-2",
                 })}
               >
-                <Download className="size-4" />
+                <HugeiconsIcon icon={Download01Icon} className="size-4" />
                 Install App
               </button>
             )}

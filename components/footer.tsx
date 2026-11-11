@@ -1,5 +1,6 @@
 import Link from "next/link"
-import { MessageCircle } from "lucide-react"
+import { HugeiconsIcon } from "@hugeicons/react"
+import { WhatsappIcon } from "@hugeicons/core-free-icons"
 import { getWhatsAppHref } from "@/lib/whatsapp"
 
 const NAV_LINKS = [
@@ -64,12 +65,12 @@ export function Footer() {
                 rel="noopener noreferrer"
                 className="mt-4 inline-flex items-center gap-2 text-sm text-white/70 transition-colors hover:text-white"
               >
-                <MessageCircle className="size-4" />
+                <HugeiconsIcon icon={WhatsappIcon} className="size-4" />
                 WhatsApp — order the book
               </a>
             ) : (
               <p className="mt-4 inline-flex items-center gap-2 text-sm text-white/50">
-                <MessageCircle className="size-4" />
+                <HugeiconsIcon icon={WhatsappIcon} className="size-4" />
                 WhatsApp (number not configured)
               </p>
             )}

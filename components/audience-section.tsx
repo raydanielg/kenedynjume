@@ -1,4 +1,5 @@
-import { Check } from "lucide-react"
+import { HugeiconsIcon } from "@hugeicons/react"
+import { Tick02Icon } from "@hugeicons/core-free-icons"
 import { Reveal, Stagger, StaggerItem } from "@/components/reveal"
 
 const AUDIENCE = [
@@ -31,7 +32,7 @@ export function AudienceSection() {
             <StaggerItem key={a}>
               <div className="flex h-full items-center gap-3 bg-white p-5 transition-colors duration-300 hover:bg-mist">
                 <span className="flex size-6 shrink-0 items-center justify-center rounded-full bg-navy">
-                  <Check className="size-3.5 text-white" strokeWidth={3} />
+                  <HugeiconsIcon icon={Tick02Icon} className="size-3.5 text-white" strokeWidth={3} />
                 </span>
                 <p className="text-sm font-semibold tracking-wide text-ink">
                   {a}

@@ -1,14 +1,17 @@
+import Image from "next/image"
 import { Spinner } from "@/components/ui/spinner"
 
 export default function Loading() {
   return (
-    <div className="flex min-h-svh flex-col items-center justify-center gap-6 bg-white">
-      <p className="text-sm font-extrabold tracking-[0.3em] text-ink uppercase">
-        20 <span className="text-ash">Objections</span>
-      </p>
-      <p className="text-[10px] font-medium tracking-[0.2em] text-ash uppercase">
-        That cost you sales
-      </p>
+    <div className="flex min-h-svh flex-col items-center justify-center gap-8 bg-white px-8">
+      <Image
+        src="/images/logo-full.png"
+        alt="20 Objections That Cost You Sales — Kenedy Njume"
+        width={1536}
+        height={1024}
+        priority
+        className="w-56 max-w-full sm:w-72"
+      />
       <Spinner size={20} color="#062b49" />
     </div>
   )

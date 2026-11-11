@@ -1,6 +1,7 @@
 "use client"
 
-import { RotateCw } from "lucide-react"
+import { HugeiconsIcon } from "@hugeicons/react"
+import { Rotate01Icon } from "@hugeicons/core-free-icons"
 import { buttonClasses } from "@/components/ui/button"
 
 export function RetryButton() {
@@ -15,7 +16,7 @@ export function RetryButton() {
         className: "gap-2 px-7",
       })}
     >
-      <RotateCw className="size-4" />
+      <HugeiconsIcon icon={Rotate01Icon} className="size-4" />
       Jaribu tena
     </button>
   )

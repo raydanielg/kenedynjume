@@ -20,20 +20,25 @@ export function WhatsAppFab() {
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      aria-label="Agiza kitabu kupitia WhatsApp"
-      initial={{ scale: 0, opacity: 0 }}
-      animate={{ scale: 1, opacity: 1 }}
-      transition={{ delay: 1.2, type: "spring", stiffness: 260, damping: 18 }}
-      whileHover={{ scale: 1.06 }}
-      whileTap={{ scale: 0.94 }}
-      className="group fixed right-6 bottom-8 z-50 hidden items-center gap-3 lg:flex lg:right-8"
+      aria-label="Agiza kitabu kupitia WhatsApp — TSh 30,000"
+      initial={{ scale: 0, opacity: 0, y: 12 }}
+      animate={{ scale: 1, opacity: 1, y: 0 }}
+      transition={{ delay: 1.2, type: "spring", stiffness: 280, damping: 16 }}
+      whileHover={{ scale: 1.07 }}
+      whileTap={{ scale: 0.92 }}
+      className="group fixed right-4 bottom-[calc(84px+env(safe-area-inset-bottom))] z-40 flex items-center gap-3 lg:right-8 lg:bottom-8"
     >
-      <span className="pointer-events-none hidden translate-x-2 rounded-full bg-navy px-4 py-2.5 text-xs font-semibold tracking-[0.08em] whitespace-nowrap text-white uppercase opacity-0 shadow-xl transition-all duration-300 group-hover:translate-x-0 group-hover:opacity-100 sm:block">
+      {/* hover label — desktop only */}
+      <span className="pointer-events-none hidden translate-x-2 rounded-full bg-navy px-4 py-2.5 text-xs font-semibold tracking-[0.08em] whitespace-nowrap text-white uppercase opacity-0 shadow-xl transition-all duration-300 group-hover:translate-x-0 group-hover:opacity-100 lg:block">
         Agiza — TSh 30,000
       </span>
-      <span className="relative flex size-14 items-center justify-center rounded-full bg-[#25d366] shadow-[0_12px_32px_-8px_rgba(37,211,102,0.7)]">
-        <span className="animate-fab-ping absolute inset-0 rounded-full bg-[#25d366]" aria-hidden />
-        <WhatsAppIcon className="relative size-7 text-white" />
+
+      <span className="relative flex size-12 items-center justify-center rounded-full bg-[#25d366] shadow-[0_12px_32px_-8px_rgba(37,211,102,0.7)] ring-2 ring-white lg:size-14">
+        <span
+          className="animate-fab-ping absolute inset-0 rounded-full bg-[#25d366]"
+          aria-hidden
+        />
+        <WhatsAppIcon className="relative size-6 text-white lg:size-7" />
       </span>
     </motion.a>
   )

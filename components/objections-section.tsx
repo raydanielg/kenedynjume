@@ -1,4 +1,5 @@
-import { Quote } from "lucide-react"
+import { HugeiconsIcon } from "@hugeicons/react"
+import { QuoteUpIcon } from "@hugeicons/core-free-icons"
 import { Reveal, Stagger, StaggerItem } from "@/components/reveal"
 import { cn } from "@/lib/utils"
 
@@ -58,7 +59,8 @@ export function ObjectionsSection() {
             <StaggerItem key={o.quote} className={cn(o.span)}>
               <article className="group flex h-full flex-col justify-between rounded-2xl border border-line bg-white p-6 transition-all duration-300 hover:-translate-y-1 hover:border-navy hover:shadow-[0_24px_40px_-24px_rgba(0,0,0,0.25)] sm:p-8">
                 <div className="flex items-start justify-between gap-4">
-                  <Quote
+                  <HugeiconsIcon
+                    icon={QuoteUpIcon}
                     className="size-6 text-navy transition-transform duration-300 group-hover:-rotate-6"
                     strokeWidth={1.5}
                   />

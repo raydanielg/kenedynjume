@@ -1,4 +1,5 @@
-import { ArrowDownRight } from "lucide-react"
+import { HugeiconsIcon } from "@hugeicons/react"
+import { ArrowDownRight01Icon } from "@hugeicons/core-free-icons"
 import { Reveal, Stagger, StaggerItem } from "@/components/reveal"
 import { buttonClasses } from "@/components/ui/button"
 
@@ -38,7 +39,8 @@ export function LostSalesSection() {
                   <p className="flex-1 text-xl font-extrabold tracking-tight text-ink uppercase sm:text-2xl lg:text-3xl">
                     {loss}
                   </p>
-                  <ArrowDownRight
+                  <HugeiconsIcon
+                    icon={ArrowDownRight01Icon}
                     className="size-5 shrink-0 text-ash transition-all duration-300 group-hover:translate-x-1 group-hover:translate-y-1 group-hover:text-navy"
                     strokeWidth={1.5}
                   />

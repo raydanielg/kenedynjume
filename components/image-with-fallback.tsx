@@ -2,7 +2,8 @@
 
 import Image from "next/image"
 import { useState, type ReactNode } from "react"
-import { ImageIcon } from "lucide-react"
+import { HugeiconsIcon } from "@hugeicons/react"
+import { Image01Icon } from "@hugeicons/core-free-icons"
 import { cn } from "@/lib/utils"
 
 /**
@@ -45,7 +46,7 @@ export function ImageWithFallback({
         role="img"
         aria-label={alt}
       >
-        <ImageIcon className="size-8 text-ash/60" strokeWidth={1.25} />
+        <HugeiconsIcon icon={Image01Icon} className="size-8 text-ash/60" strokeWidth={1.25} />
         <div>
           <p className="text-xs font-semibold tracking-[0.2em] text-ash uppercase">
             {label ?? "Image placeholder"}

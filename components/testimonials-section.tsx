@@ -1,7 +1,8 @@
 "use client"
 
 import { useState } from "react"
-import { Expand } from "lucide-react"
+import { HugeiconsIcon } from "@hugeicons/react"
+import { ExpandIcon } from "@hugeicons/core-free-icons"
 import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog"
 import { ImageWithFallback } from "@/components/image-with-fallback"
 import { Reveal, Stagger, StaggerItem } from "@/components/reveal"
@@ -50,7 +51,7 @@ export function TestimonialsSection() {
                   sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                 />
                 <span className="absolute top-4 right-4 flex size-9 items-center justify-center rounded-full bg-white/90 text-ink opacity-0 shadow transition-opacity duration-300 group-hover:opacity-100">
-                  <Expand className="size-4" />
+                  <HugeiconsIcon icon={ExpandIcon} className="size-4" />
                 </span>
               </button>
             </StaggerItem>

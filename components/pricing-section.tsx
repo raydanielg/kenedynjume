@@ -17,13 +17,13 @@ export function PricingSection() {
           {/* Mobile purchase card — compact product summary + order */}
           <Reveal className="mb-10 lg:hidden">
             <div className="flex items-center gap-4 rounded-2xl bg-white/5 p-4 ring-1 ring-white/10">
-              <div className="relative size-16 shrink-0 overflow-hidden rounded-lg">
+              <div className="relative size-16 shrink-0">
                 <Image
-                  src="/images/book-cover.png"
+                  src="/images/book-cover-removebg-preview.png"
                   alt="20 Objections That Cost You Sales"
                   fill
                   sizes="64px"
-                  className="object-cover"
+                  className="object-contain"
                 />
               </div>
               <div className="min-w-0 flex-1">

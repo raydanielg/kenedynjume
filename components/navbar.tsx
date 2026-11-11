@@ -91,12 +91,12 @@ export function Navbar() {
                   "hidden gap-2 px-5 text-xs font-semibold tracking-[0.08em] uppercase transition-all hover:-translate-y-0.5 hover:shadow-lg sm:inline-flex",
               })}
             >
-              Get the book — TSh 30,000
+              Pata Kitabu
               <HugeiconsIcon icon={ArrowRight01Icon} className="size-3.5" />
             </a>
           ) : (
             <span className="hidden items-center gap-2 rounded-full bg-navy/60 px-5 py-2.5 text-xs font-semibold tracking-[0.08em] text-white uppercase sm:inline-flex">
-              Get the book — TSh 30,000
+              Pata Kitabu
             </span>
           )}
 
@@ -144,7 +144,7 @@ export function Navbar() {
                         "gap-2 text-sm font-semibold tracking-[0.08em] uppercase",
                     })}
                   >
-                    Get the book — TSh 30,000
+                    Pata Kitabu
                     <HugeiconsIcon icon={ArrowRight01Icon} className="size-4" />
                   </a>
                 ) : (

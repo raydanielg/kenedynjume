@@ -1,6 +1,6 @@
 "use client"
 
-import { motion } from "framer-motion"
+import { motion, useReducedMotion } from "framer-motion"
 import { getWhatsAppHref } from "@/lib/whatsapp"
 
 function WhatsAppIcon({ className }: { className?: string }) {
@@ -13,6 +13,7 @@ function WhatsAppIcon({ className }: { className?: string }) {
 
 export function WhatsAppFab() {
   const href = getWhatsAppHref()
+  const reduce = useReducedMotion()
   if (!href) return null
 
   return (
@@ -21,9 +22,13 @@ export function WhatsAppFab() {
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Agiza kitabu kupitia WhatsApp — TSh 30,000"
-      initial={{ scale: 0, opacity: 0, y: 12 }}
-      animate={{ scale: 1, opacity: 1, y: 0 }}
-      transition={{ delay: 1.2, type: "spring", stiffness: 280, damping: 16 }}
+      initial={reduce ? { opacity: 0 } : { scale: 0, opacity: 0, y: 12 }}
+      animate={reduce ? { opacity: 1 } : { scale: 1, opacity: 1, y: 0 }}
+      transition={
+        reduce
+          ? { delay: 0.8, duration: 0.3 }
+          : { delay: 1.2, type: "spring", stiffness: 280, damping: 16 }
+      }
       whileHover={{ scale: 1.07 }}
       whileTap={{ scale: 0.92 }}
       className="group fixed right-4 bottom-[calc(84px+env(safe-area-inset-bottom))] z-40 flex items-center gap-3 lg:right-8 lg:bottom-8"

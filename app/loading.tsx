@@ -12,7 +12,7 @@ export default function Loading() {
         priority
         className="w-56 max-w-full sm:w-72"
       />
-      <Spinner size={20} color="#062b49" />
+      <Spinner size={30} color="#062b49" />
     </div>
   )
 }

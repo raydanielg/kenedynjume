@@ -153,11 +153,11 @@ function PreviewOverlay({ onClose }: { onClose: () => void }) {
     <div key="cover" data-density="hard" className="h-full">
       <div className="relative h-full overflow-hidden border border-line bg-white">
         <Image
-          src="/images/book-cover.png"
+          src="/images/book-cover-removebg-preview.png"
           alt="20 Objections That Cost You Sales — cover"
           fill
           sizes="400px"
-          className="object-cover"
+          className="object-contain p-6 drop-shadow-[0_25px_30px_rgba(0,0,0,0.3)]"
           priority
         />
       </div>

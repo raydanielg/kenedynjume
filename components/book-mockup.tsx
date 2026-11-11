@@ -7,13 +7,13 @@ import { cn } from "@/lib/utils"
 const THICKNESS = 40 // px — book depth for the CSS fallback
 
 /**
- * Shows the real book render at /images/book-cover.png (a studio 3D mockup).
+ * Shows the real book render (transparent-background 3D mockup).
  * If the file is missing, a pure-CSS 3D book stands in — so the page never
  * breaks, and swapping the real artwork in later is a one-file drop-in.
  */
 export function BookMockup({
   className,
-  coverSrc = "/images/book-cover.png",
+  coverSrc = "/images/book-cover-removebg-preview.png",
   priority = false,
 }: {
   className?: string
@@ -29,25 +29,21 @@ export function BookMockup({
 
   return (
     <div className={cn("relative w-full", className)}>
-      <div className="relative mx-auto w-full max-w-[340px] sm:max-w-[420px]">
-        <div
+      <div className="relative mx-auto w-full max-w-[340px] sm:max-w-[440px]">
+        <Image
+          src={coverSrc}
+          alt="20 Objections That Cost You Sales — kitabu cha Kenedy Njume"
+          width={456}
+          height={547}
+          priority={priority}
+          sizes="(max-width: 640px) 85vw, 440px"
           className={cn(
-            "relative overflow-hidden rounded-[1.75rem] bg-neutral-800 shadow-[0_50px_90px_-30px_rgba(0,0,0,0.55)] ring-1 ring-black/10 transition-all duration-700",
-            loaded ? "opacity-100" : "animate-pulse opacity-80"
+            "h-auto w-full drop-shadow-[0_45px_45px_rgba(0,0,0,0.45)] transition-all duration-700",
+            loaded ? "opacity-100" : "animate-pulse opacity-60"
           )}
-        >
-          <Image
-            src={coverSrc}
-            alt="20 Objections That Cost You Sales — kitabu cha Kenedy Njume"
-            width={1145}
-            height={1374}
-            priority={priority}
-            sizes="(max-width: 640px) 85vw, 420px"
-            className="h-auto w-full"
-            onLoad={() => setLoaded(true)}
-            onError={() => setMissing(true)}
-          />
-        </div>
+          onLoad={() => setLoaded(true)}
+          onError={() => setMissing(true)}
+        />
       </div>
     </div>
   )

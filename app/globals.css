@@ -174,21 +174,62 @@ html {
     }
 }
 
-@keyframes spinner-bar {
-    0% {
-        opacity: 0.15;
-    }
+/* Spark spinner — eight petals flaring in a wave while the spark turns.
+   Units are proportional to --lsv-size (1 unit = 5% of size). */
+.lsv-spark {
+    position: relative;
+    display: inline-block;
+    width: var(--lsv-size);
+    height: var(--lsv-size);
+    flex: none;
+}
+
+.lsv-spark-turn {
+    position: absolute;
+    inset: 0;
+    animation: lsv-spark-rotate calc(var(--_duration) * 2.75) linear infinite;
+    animation-play-state: var(--_play-state);
+}
+
+.lsv-spark-arm {
+    position: absolute;
+    inset: 0;
+    transform: rotate(calc(var(--i) * 45deg));
+}
+
+.lsv-spark-petal {
+    position: absolute;
+    left: calc(50% - var(--lsv-size) * 0.045);
+    bottom: calc(50% + var(--lsv-size) * 0.15);
+    width: calc(var(--lsv-size) * 0.09);
+    height: calc(var(--lsv-size) * var(--length) * 0.05);
+    border-radius: 999px;
+    background: currentColor;
+    transform-origin: 50% 100%;
+    animation: lsv-spark-flare var(--_duration) ease-in-out infinite;
+    animation-delay: calc(var(--i) * var(--_duration) / -8);
+    animation-play-state: var(--_play-state);
+}
+
+@keyframes lsv-spark-flare {
+    0%,
     100% {
-        opacity: 1;
+        transform: scaleY(0.707);
+    }
+    50% {
+        transform: scaleY(1.414);
     }
 }
 
-.animate-spinner-bar {
-    animation: spinner-bar 1.2s linear infinite;
+@keyframes lsv-spark-rotate {
+    to {
+        transform: rotate(360deg);
+    }
 }
 
 @media (prefers-reduced-motion: reduce) {
-    .animate-spinner-bar {
+    .lsv-spark-petal,
+    .lsv-spark-turn {
         animation: none;
     }
 }

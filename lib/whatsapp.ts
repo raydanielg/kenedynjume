@@ -2,7 +2,7 @@ const PREFILLED_MESSAGE =
   "Habari Kenedy, nimevutiwa na kitabu cha 20 OBJECTIONS THAT COST YOU SALES. Ningependa kuagiza nakala moja kwa TSh 30,000. Naomba maelekezo ya malipo na upokeaji."
 
 export const WHATSAPP_NUMBER = (
-  process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? ""
+  process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? "255746274010"
 ).replace(/\D/g, "")
 
 export function getWhatsAppHref(): string | null {

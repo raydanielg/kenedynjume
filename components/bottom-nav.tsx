@@ -7,11 +7,9 @@ import {
   AlertCircleIcon,
   BookOpen01Icon,
   Home01Icon,
-  ShoppingBag02Icon,
   UserCircleIcon,
 } from "@hugeicons/core-free-icons"
 import { cn } from "@/lib/utils"
-import { getWhatsAppHref } from "@/lib/whatsapp"
 
 const ITEMS = [
   { id: "home", label: "Home", icon: Home01Icon },
@@ -22,7 +20,6 @@ const ITEMS = [
 
 export function BottomNav() {
   const [active, setActive] = useState("home")
-  const wa = getWhatsAppHref()
 
   useEffect(() => {
     const sections = ITEMS.map((i) => document.getElementById(i.id)).filter(
@@ -72,32 +69,6 @@ export function BottomNav() {
             </span>
           </Link>
         ))}
-
-        {wa ? (
-          <a
-            href={wa}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Agiza kitabu — TSh 30,000 kupitia WhatsApp"
-            className="my-auto flex min-w-[72px] flex-col items-center gap-1"
-          >
-            <span className="flex size-11 items-center justify-center rounded-full bg-navy text-white shadow-[0_10px_24px_-8px_rgba(0,0,0,0.5)] transition-transform active:scale-95">
-              <HugeiconsIcon icon={ShoppingBag02Icon} className="size-5" strokeWidth={2} />
-            </span>
-            <span className="text-[10px] font-bold tracking-wide text-navy">
-              Agiza
-            </span>
-          </a>
-        ) : (
-          <span className="my-auto flex min-w-[72px] flex-col items-center gap-1">
-            <span className="flex size-11 items-center justify-center rounded-full bg-navy/50 text-white">
-              <HugeiconsIcon icon={ShoppingBag02Icon} className="size-5" strokeWidth={2} />
-            </span>
-            <span className="text-[10px] font-bold tracking-wide text-ash">
-              Agiza
-            </span>
-          </span>
-        )}
       </div>
     </nav>
   )

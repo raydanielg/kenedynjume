@@ -2,12 +2,7 @@
 
 import { useRef } from "react"
 import { HugeiconsIcon } from "@hugeicons/react"
-import {
-  ArrowRight01Icon,
-  BookOpen01Icon,
-  Call02Icon,
-  WhatsappIcon,
-} from "@hugeicons/core-free-icons"
+import { BookOpen01Icon, Call02Icon } from "@hugeicons/core-free-icons"
 import { TimelineContent } from "@/components/ui/timeline-animation"
 import { VerticalCutReveal } from "@/components/ui/vertical-cut-reveal"
 import { ImageWithFallback } from "@/components/image-with-fallback"
@@ -73,12 +68,6 @@ export function AuthorSection() {
             </div>
             <div className="flex gap-4">
               {[
-                {
-                  href: waHref,
-                  icon: WhatsappIcon,
-                  label: "Order on WhatsApp",
-                  num: 1,
-                },
                 { href: telHref, icon: Call02Icon, label: "Call Kenedy", num: 2 },
                 {
                   href: "#the-book",
@@ -245,23 +234,9 @@ export function AuthorSection() {
                 customVariants={revealVariants}
                 className="mb-6"
               >
-                <p className="mb-4 font-medium text-ink">
+                <p className="font-medium text-ink">
                   Uko tayari kuacha kupoteza deals kwa sababu ya objections?
                 </p>
-              </TimelineContent>
-
-              <TimelineContent
-                as="a"
-                animationNum={15}
-                timelineRef={heroRef}
-                customVariants={revealVariants}
-                href={waHref}
-                target={waHref.startsWith("http") ? "_blank" : undefined}
-                rel={waHref.startsWith("http") ? "noopener noreferrer" : undefined}
-                className="flex w-fit cursor-pointer gap-2 rounded-lg border border-navy bg-navy px-5 py-3 font-semibold text-white shadow-lg shadow-navy/30 transition-all duration-300 ease-in-out hover:gap-4 hover:bg-navy-deep md:ml-auto"
-              >
-                AGIZA KITABU
-                <HugeiconsIcon icon={ArrowRight01Icon} className="size-5" strokeWidth={2} />
               </TimelineContent>
             </div>
           </div>

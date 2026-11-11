@@ -6,6 +6,7 @@ import { ThemeProvider } from "@/components/theme-provider"
 import { MotionProvider } from "@/components/motion-provider"
 import { TooltipProvider } from "@/components/ui/tooltip"
 import { Toaster } from "@/components/ui/sonner"
+import { Analytics } from "@/components/analytics"
 import { cn } from "@/lib/utils";
 
 const publicSans = Public_Sans({subsets:['latin'],variable:'--font-sans'})
@@ -23,9 +24,9 @@ const fontMono = Geist_Mono({
 })
 
 export const metadata: Metadata = {
-  metadataBase: process.env.NEXT_PUBLIC_SITE_URL
-    ? new URL(process.env.NEXT_PUBLIC_SITE_URL)
-    : undefined,
+  metadataBase: new URL(
+    process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000"
+  ),
   applicationName: "20 Objections",
   manifest: "/manifest.webmanifest",
   appleWebApp: {
@@ -38,12 +39,46 @@ export const metadata: Metadata = {
     icon: "/icons/icon-192.png",
   },
   title: {
-    default: "20 Objections That Cost You Sales — Kenedy Njume",
-    template: "%s — 20 Objections That Cost You Sales",
+    default: "20 Objections That Cost You Sales | Kenedy Njume",
+    template: "%s | 20 Objections That Cost You Sales",
   },
   description:
-    "Kitabu cha Kenedy Njume kinachokufundisha namna ya kushughulikia objections za wateja, kuboresha mazungumzo ya mauzo na kufunga deals zaidi. TSh 30,000.",
+    "Jifunze namna ya kushughulikia objections za wateja, kujibu pingamizi za mauzo na kufunga deals nyingi zaidi. Pata kitabu cha Kenedy Njume kwa TSh 30,000.",
+  keywords: [
+    "20 Objections That Cost You Sales",
+    "how to handle customer objections",
+    "sales objection handling",
+    "how to close more sales",
+    "sales training Tanzania",
+    "sales techniques",
+    "jinsi ya kuongeza mauzo",
+    "mafunzo ya mauzo Tanzania",
+    "mbinu za kushawishi wateja kununua",
+    "jinsi ya kujibu wateja wanaosema bei ni kubwa",
+    "vitabu vya biashara na mauzo",
+    "Kenedy Njume",
+    "High Return Consulting",
+  ],
+  authors: [{ name: "Kenedy Njume" }],
+  creator: "Kenedy Njume",
+  publisher: "High Return Consulting",
+  category: "Business & Sales",
+  alternates: {
+    canonical: "/",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  formatDetection: { telephone: false },
   openGraph: {
+    url: "/",
     title: "20 Objections That Cost You Sales",
     description:
       "How to Handle Customer Objections and Close More Deals — kitabu cha Kenedy Njume. TSh 30,000.",
@@ -85,6 +120,7 @@ export default function RootLayout({
             <TooltipProvider>{children}</TooltipProvider>
           </MotionProvider>
           <Toaster />
+          <Analytics />
         </ThemeProvider>
       </body>
     </html>

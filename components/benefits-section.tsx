@@ -43,7 +43,7 @@ export function BenefitsSection() {
           </Badge>
           <div className="flex flex-col gap-3">
             <h2 className="max-w-xl text-3xl tracking-tighter text-ink sm:text-4xl lg:text-5xl">
-              Unapata nini ndani ya kitabu hiki?
+              Unachoweza Kujifunza Kuhusu Sales Objection Handling
             </h2>
             <p className="max-w-xl text-base leading-relaxed tracking-tight text-ash sm:text-lg">
               Ujuzi wa vitendo unaoweza kutumia mara moja kwenye mazungumzo

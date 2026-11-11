@@ -22,6 +22,7 @@ export function WhatsAppFab() {
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Agiza kitabu kupitia WhatsApp — TSh 30,000"
+      data-track-wa="fab"
       initial={reduce ? { opacity: 0 } : { scale: 0, opacity: 0, y: 12 }}
       animate={reduce ? { opacity: 1 } : { scale: 1, opacity: 1, y: 0 }}
       transition={

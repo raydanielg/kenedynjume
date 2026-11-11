@@ -16,10 +16,13 @@ import { BottomNav } from "@/components/bottom-nav"
 import { WhatsAppFab } from "@/components/whatsapp-fab"
 import { InstallPrompt } from "@/components/install-prompt"
 import { SwRegister } from "@/components/sw-register"
+import { JsonLd } from "@/components/json-ld"
+import { WhatsAppTrack } from "@/components/whatsapp-track"
 
 export default function Page() {
   return (
     <div className="overflow-x-clip bg-white pb-[76px] text-ink lg:pb-0">
+      <JsonLd />
       <AnnouncementBar />
       <Navbar />
       <main>
@@ -40,6 +43,7 @@ export default function Page() {
       <WhatsAppFab />
       <InstallPrompt />
       <SwRegister />
+      <WhatsAppTrack />
     </div>
   )
 }

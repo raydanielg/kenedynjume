@@ -12,6 +12,7 @@ import {
   Tick02Icon,
 } from "@hugeicons/core-free-icons"
 import { buttonClasses } from "@/components/ui/button"
+import { trackEvent } from "@/lib/analytics"
 
 const DISMISS_KEY = "20o-install-dismissed"
 
@@ -41,6 +42,7 @@ export function InstallPrompt() {
     const onInstalled = () => {
       localStorage.setItem(DISMISS_KEY, "1")
       setVisible(false)
+      trackEvent("install_app_success")
     }
     window.addEventListener("beforeinstallprompt", onPrompt)
     window.addEventListener("appinstalled", onInstalled)
@@ -67,6 +69,7 @@ export function InstallPrompt() {
 
   const install = async () => {
     if (!deferred) return
+    trackEvent("install_app_click")
     await deferred.prompt()
     await deferred.userChoice
     setDeferred(null)

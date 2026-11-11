@@ -22,6 +22,7 @@ export function WhatsAppButton({
   icon = "arrow",
   devNote = false,
   fullWidth = false,
+  buttonLocation = "cta",
 }: {
   label: string
   variant?: Variant
@@ -29,6 +30,7 @@ export function WhatsAppButton({
   icon?: "arrow" | "whatsapp" | "none"
   devNote?: boolean
   fullWidth?: boolean
+  buttonLocation?: string
 }) {
   const href = getWhatsAppHref()
 
@@ -82,6 +84,7 @@ export function WhatsAppButton({
         target="_blank"
         rel="noopener noreferrer"
         className={classes}
+        data-track-wa={buttonLocation}
       >
         {label}
         {iconData && <HugeiconsIcon icon={iconData} className="size-4" />}

@@ -1,7 +1,7 @@
 import { Badge } from "@/components/ui/badge"
 import { Reveal, Stagger, StaggerItem } from "@/components/reveal"
 
-const FAQS = [
+export const FAQS = [
   {
     q: "Kitabu hiki kinahusu nini?",
     a: "Kinahusu namna ya kushughulikia objections za wateja ili kuboresha mazungumzo ya mauzo na kuongeza uwezo wa kufunga deals.",
@@ -36,7 +36,7 @@ export function FaqSection() {
             FAQ
           </Badge>
           <h2 className="mt-4 text-3xl leading-tight font-extrabold tracking-tight text-ink uppercase sm:text-4xl lg:text-5xl">
-            Maswali yanayoulizwa mara kwa mara
+            Maswali Kuhusu Kitabu cha 20 Objections That Cost You Sales
           </h2>
           <p className="mt-5 text-base font-medium text-ash sm:text-lg">
             Majibu ya haraka kuhusu kitabu, bei na namna ya kuagiza nakala yako.

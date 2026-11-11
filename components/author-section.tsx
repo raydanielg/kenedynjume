@@ -160,7 +160,7 @@ export function AuthorSection() {
         {/* Main content */}
         <div className="grid gap-8 md:grid-cols-3">
           <div className="md:col-span-2">
-            <h1 className="mb-8 text-2xl !leading-[110%] font-semibold tracking-tight text-ink sm:text-4xl md:text-5xl">
+            <h2 className="mb-8 text-2xl !leading-[110%] font-semibold tracking-tight text-ink sm:text-4xl md:text-5xl">
               <VerticalCutReveal
                 splitBy="words"
                 staggerDuration={0.12}
@@ -172,9 +172,9 @@ export function AuthorSection() {
                   delay: 0.4,
                 }}
               >
-                Mimi ni nani?
+                Kenedy Njume — Sales Trainer na Entrepreneur
               </VerticalCutReveal>
-            </h1>
+            </h2>
 
             <TimelineContent
               as="div"

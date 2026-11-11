@@ -44,6 +44,7 @@ export function FooterTear() {
             { label: "Home", href: "#home" },
             { label: "The Problem", href: "#the-problem" },
             { label: "The Book", href: "#the-book" },
+            { label: "Blog — makala za mauzo", href: "/blog" },
           ],
           cta: { label: "order.", href: "#order" },
         },

@@ -61,7 +61,8 @@ export function ObjectionsSection() {
                 The problem
               </p>
               <h2 className="mt-4 max-w-xl text-3xl leading-tight font-extrabold tracking-tight text-ink uppercase sm:text-4xl lg:text-5xl">
-                Unamjibu nini mteja anaposema haya?
+                Jinsi ya Kushughulikia Customer Objections na Kupunguza
+                Kupoteza Mauzo
               </h2>
               <p className="mt-5 max-w-xl text-base leading-relaxed text-ash sm:text-lg">
                 Unaweza kuwa na bidhaa bora, bei nzuri na huduma nzuri. Lakini

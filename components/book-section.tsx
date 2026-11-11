@@ -27,7 +27,7 @@ export function BookSection() {
               The solution
             </p>
             <h2 className="mt-4 text-3xl leading-tight font-extrabold tracking-tight text-ink uppercase sm:text-4xl lg:text-5xl">
-              Nimekuandalia suluhisho!
+              20 Objections That Cost You Sales
             </h2>
 
             <div className="mt-8 border-l-2 border-navy pl-6">

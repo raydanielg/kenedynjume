@@ -4,7 +4,7 @@ import * as React from "react"
 import { cva, type VariantProps } from "class-variance-authority"
 import { cn } from "cn"
 
-import { Button } from "@/components/ui/button"
+import { Button } from "@/components/ui/button-radix"
 import { HugeiconsIcon } from "@hugeicons/react"
 import { Tick02Icon, Copy01Icon } from "@hugeicons/core-free-icons"
 

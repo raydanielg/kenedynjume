@@ -4,7 +4,7 @@ import * as React from "react"
 import { Questionnaire as QuestionnairePrimitive } from "@shadcn/react/questionnaire"
 import { cn } from "cn"
 
-import { buttonVariants, type Button } from "@/components/ui/button"
+import { buttonVariants, type Button } from "@/components/ui/button-radix"
 import { HugeiconsIcon } from "@hugeicons/react"
 import { Tick02Icon } from "@hugeicons/core-free-icons"
 

@@ -1,0 +1,90 @@
+import { ArrowRight, MessageCircle } from "lucide-react"
+import { cn } from "@/lib/utils"
+import { getWhatsAppHref } from "@/lib/whatsapp"
+import { buttonClasses } from "@/components/ui/button"
+
+type Variant = "dark" | "light" | "outline"
+
+const variantType: Record<Variant, "primary" | "secondary"> = {
+  dark: "primary",
+  light: "secondary",
+  outline: "secondary",
+}
+
+export function WhatsAppButton({
+  label,
+  variant = "dark",
+  className,
+  icon = "arrow",
+  devNote = false,
+  fullWidth = false,
+}: {
+  label: string
+  variant?: Variant
+  className?: string
+  icon?: "arrow" | "whatsapp" | "none"
+  devNote?: boolean
+  fullWidth?: boolean
+}) {
+  const href = getWhatsAppHref()
+
+  const Icon =
+    icon === "arrow" ? ArrowRight : icon === "whatsapp" ? MessageCircle : null
+
+  const classes = cn(
+    buttonClasses({
+      type: variantType[variant],
+      shape: "square",
+      size: "large",
+      fullWidth,
+    }),
+    "gap-2.5 px-7 text-sm font-semibold tracking-[0.08em] uppercase transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg",
+    className
+  )
+
+  if (!href) {
+    return (
+      <span
+        className={cn(
+          "inline-flex flex-col items-center gap-1.5",
+          fullWidth && "w-full"
+        )}
+      >
+        <span
+          className={cn(classes, "cursor-not-allowed opacity-60")}
+          aria-disabled="true"
+        >
+          {label}
+          {Icon && <Icon className="size-4" />}
+        </span>
+        <span className="font-mono text-[11px] tracking-normal text-ash normal-case">
+          Dev: set NEXT_PUBLIC_WHATSAPP_NUMBER
+        </span>
+      </span>
+    )
+  }
+
+  return (
+    <span
+      className={cn(
+        "inline-flex flex-col items-center gap-1.5",
+        fullWidth && "w-full"
+      )}
+    >
+      <a
+        href={href}
+        target="_blank"
+        rel="noopener noreferrer"
+        className={classes}
+      >
+        {label}
+        {Icon && <Icon className="size-4" />}
+      </a>
+      {devNote && (
+        <span className="text-[11px] tracking-normal text-ash normal-case">
+          Orders via WhatsApp
+        </span>
+      )}
+    </span>
+  )
+}

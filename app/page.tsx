@@ -1,19 +1,45 @@
-import { Button } from "@/components/ui/button"
+import { AnnouncementBar } from "@/components/announcement-bar"
+import { Navbar } from "@/components/navbar"
+import { HeroSection } from "@/components/hero-section"
+import { ObjectionsSection } from "@/components/objections-section"
+import { LostSalesSection } from "@/components/lost-sales-section"
+import { TestimonialsSection } from "@/components/testimonials-section"
+import { AuthorSection } from "@/components/author-section"
+import { BookSection } from "@/components/book-section"
+import { BenefitsSection } from "@/components/benefits-section"
+import { AudienceSection } from "@/components/audience-section"
+import { PricingSection } from "@/components/pricing-section"
+import { FaqSection } from "@/components/faq-section"
+import { FinalCta } from "@/components/final-cta"
+import { FooterTear } from "@/components/footer-tear"
+import { BottomNav } from "@/components/bottom-nav"
+import { WhatsAppFab } from "@/components/whatsapp-fab"
+import { InstallPrompt } from "@/components/install-prompt"
+import { SwRegister } from "@/components/sw-register"
 
 export default function Page() {
   return (
-    <div className="flex min-h-svh p-6">
-      <div className="flex max-w-md min-w-0 flex-col gap-4 text-sm leading-loose">
-        <div>
-          <h1 className="font-medium">Project ready!</h1>
-          <p>You may now add components and start building.</p>
-          <p>We&apos;ve already added the button component for you.</p>
-          <Button className="mt-2">Button</Button>
-        </div>
-        <div className="font-mono text-xs text-muted-foreground">
-          (Press <kbd>d</kbd> to toggle dark mode)
-        </div>
-      </div>
+    <div className="overflow-x-clip bg-white pb-[76px] text-ink lg:pb-0">
+      <AnnouncementBar />
+      <Navbar />
+      <main>
+        <HeroSection />
+        <ObjectionsSection />
+        <LostSalesSection />
+        <TestimonialsSection />
+        <AuthorSection />
+        <BookSection />
+        <BenefitsSection />
+        <AudienceSection />
+        <PricingSection />
+        <FaqSection />
+        <FinalCta />
+      </main>
+      <FooterTear />
+      <BottomNav />
+      <WhatsAppFab />
+      <InstallPrompt />
+      <SwRegister />
     </div>
   )
 }

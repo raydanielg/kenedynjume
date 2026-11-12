@@ -13,19 +13,17 @@ const revealVariants: Variants = {
   visible: (i: number) => ({
     y: 0,
     opacity: 1,
-    filter: "blur(0px)",
     transition: { delay: i * 0.4, duration: 0.5 },
   }),
-  hidden: { filter: "blur(10px)", y: -20, opacity: 0 },
+  hidden: { y: -20, opacity: 0 },
 }
 
 const scaleVariants: Variants = {
   visible: (i: number) => ({
     opacity: 1,
-    filter: "blur(0px)",
     transition: { delay: i * 0.4, duration: 0.5 },
   }),
-  hidden: { filter: "blur(10px)", opacity: 0 },
+  hidden: { opacity: 0 },
 }
 
 const TRAINING_IMAGES = [
@@ -36,10 +34,6 @@ const TRAINING_IMAGES = [
   {
     src: "/images/training-3.jpg",
     alt: "Kenedy Njume training a corporate sales team",
-  },
-  {
-    src: "/images/kenedy-portrait.png",
-    alt: "Professional portrait of Kenedy Njume, Sales Trainer and Founder of High Return Consulting",
   },
 ]
 
@@ -63,7 +57,7 @@ export function AuthorSection() {
                 customVariants={revealVariants}
                 className="text-sm font-medium tracking-[0.15em] text-ash uppercase"
               >
-                About the author
+                Mimi ni nani?
               </TimelineContent>
             </div>
             <div className="flex gap-4">
@@ -242,13 +236,38 @@ export function AuthorSection() {
           </div>
         </div>
 
-        {/* Training gallery */}
-        <div className="mt-16 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        {/* Training gallery — status-strip layout */}
+        <div className="mt-16 grid grid-cols-3 gap-2 sm:gap-4">
+          {/* Ebook promo panel */}
+          <TimelineContent
+            as="div"
+            animationNum={16}
+            timelineRef={heroRef}
+            customVariants={revealVariants}
+          >
+            <div className="relative aspect-[3/4] overflow-hidden rounded-2xl bg-navy ring-1 ring-line">
+              <ImageWithFallback
+                src="/images/book-cover-removebg-preview.png"
+                alt="20 Objections That Cost You Sales by Kenedy Njume — ebook"
+                label="Book cover"
+                className="absolute inset-0"
+                imgClassName="object-contain p-6 sm:p-10"
+                sizes="(max-width: 640px) 33vw, 30vw"
+              />
+              <p className="absolute top-3 right-3 left-3 text-center text-[8px] font-bold tracking-[0.25em] text-white/70 uppercase sm:top-5 sm:text-[11px]">
+                Ebook · Available online
+              </p>
+              <p className="absolute right-3 bottom-3 left-3 text-center text-[8px] font-bold tracking-[0.25em] text-white uppercase sm:bottom-5 sm:text-[11px]">
+                Get yours today
+              </p>
+            </div>
+          </TimelineContent>
+
           {TRAINING_IMAGES.map((img, i) => (
             <TimelineContent
               as="div"
               key={img.src}
-              animationNum={16 + i}
+              animationNum={17 + i}
               timelineRef={heroRef}
               customVariants={revealVariants}
             >
@@ -256,8 +275,8 @@ export function AuthorSection() {
                 src={img.src}
                 alt={img.alt}
                 label={`Training photo ${i + 1}`}
-                className="aspect-[4/3] w-full rounded-2xl shadow-sm ring-1 ring-line"
-                sizes="(max-width: 640px) 100vw, 33vw"
+                className="aspect-[3/4] w-full rounded-2xl shadow-sm ring-1 ring-line"
+                sizes="(max-width: 640px) 33vw, 30vw"
               />
             </TimelineContent>
           ))}

@@ -44,7 +44,7 @@ export function JsonLd() {
           name: "Kenedy Njume",
         },
         inLanguage: "sw",
-        image: `${SITE_URL}/images/book-cover.png`,
+        image: `${SITE_URL}/images/book-cover.jpg`,
         url: SITE_URL,
         offers: {
           "@type": "Offer",

@@ -5,7 +5,7 @@ export default function Loading() {
   return (
     <div className="flex min-h-svh flex-col items-center justify-center gap-8 bg-white px-8">
       <Image
-        src="/images/logo-full.png"
+        src="/images/logo-full.webp"
         alt="20 Objections That Cost You Sales — Kenedy Njume"
         width={1536}
         height={1024}

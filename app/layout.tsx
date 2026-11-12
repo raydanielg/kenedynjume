@@ -85,14 +85,14 @@ export const metadata: Metadata = {
     type: "website",
     locale: "sw_TZ",
     siteName: "20 Objections That Cost You Sales",
-    images: [{ url: "/images/book-cover.png", width: 1145, height: 1374 }],
+    images: [{ url: "/images/book-cover.jpg", width: 1145, height: 1374 }],
   },
   twitter: {
     card: "summary_large_image",
     title: "20 Objections That Cost You Sales",
     description:
       "How to Handle Customer Objections and Close More Deals — kitabu cha Kenedy Njume. TSh 30,000.",
-    images: ["/images/book-cover.png"],
+    images: ["/images/book-cover.jpg"],
   },
 }
 

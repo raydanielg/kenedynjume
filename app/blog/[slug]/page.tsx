@@ -177,7 +177,7 @@ export default async function BlogPostPage({
         <div className="mt-12 flex items-center gap-4 border-t border-line pt-8">
           <div className="relative size-14 shrink-0 overflow-hidden rounded-full ring-1 ring-line">
             <Image
-              src="/images/kenedy-portrait.png"
+              src="/images/kenedy-portrait.webp"
               alt="Kenedy Njume akitoa mafunzo ya sales"
               fill
               sizes="56px"

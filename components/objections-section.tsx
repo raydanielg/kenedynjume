@@ -58,15 +58,15 @@ export function ObjectionsSection() {
             <div className="relative flex h-full flex-col justify-center border border-dashed border-ash/30 p-8 sm:p-12">
               <Corner />
               <p className="text-[11px] font-semibold tracking-[0.28em] text-navy uppercase sm:text-xs">
-                The problem
+                Ghafla anasema —
               </p>
               <h2 className="mt-4 max-w-xl text-3xl leading-tight font-extrabold tracking-tight text-ink uppercase sm:text-4xl lg:text-5xl">
-                Jinsi ya Kushughulikia Customer Objections na Kupunguza
-                Kupoteza Mauzo
+                Unamjibu nini?
               </h2>
               <p className="mt-5 max-w-xl text-base leading-relaxed text-ash sm:text-lg">
-                Unaweza kuwa na bidhaa bora, bei nzuri na huduma nzuri. Lakini
-                ukishindwa kujibu objections za mteja, unaweza kupoteza mauzo.
+                Ni wateja wangapi wameondoka bila kununua? Commissions ngapi
+                umepoteza? Deals ngapi zimekushinda kwa kushindwa ku-handle
+                objections hizi na nyinginezo?
               </p>
             </div>
           </StaggerItem>

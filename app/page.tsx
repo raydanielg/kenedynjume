@@ -1,4 +1,3 @@
-import { AnnouncementBar } from "@/components/announcement-bar"
 import { Navbar } from "@/components/navbar"
 import { HeroSection } from "@/components/hero-section"
 import { ObjectionsSection } from "@/components/objections-section"
@@ -23,7 +22,6 @@ export default function Page() {
   return (
     <div className="overflow-x-clip bg-white pb-[76px] text-ink lg:pb-0">
       <JsonLd />
-      <AnnouncementBar />
       <Navbar />
       <main>
         <HeroSection />

@@ -55,7 +55,7 @@ export function Navbar() {
           className="flex items-center"
         >
           <Image
-            src="/images/logo-mark.png"
+            src="/images/logo-mark.webp"
             alt="20 Objections That Cost You Sales"
             width={1476}
             height={700}

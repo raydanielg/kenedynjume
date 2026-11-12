@@ -103,7 +103,7 @@ export function InstallPrompt() {
             <div className="flex items-center gap-3">
               <span className="flex size-11 shrink-0 items-center justify-center overflow-hidden rounded-xl border border-line bg-white p-1">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src="/images/logo-icon.png" alt="" className="h-full w-full object-contain" />
+                <img src="/images/logo-icon.webp" alt="" className="h-full w-full object-contain" />
               </span>
               <div>
                 <p className="text-sm font-bold tracking-tight text-ink">

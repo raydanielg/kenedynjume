@@ -284,7 +284,7 @@ function PreviewOverlay({ onClose }: { onClose: () => void }) {
         <div className="flex-1 px-5 py-5 sm:px-7">
           <div className="relative mx-auto aspect-[4/5] w-3/5 overflow-hidden rounded-xl">
             <Image
-              src="/images/kenedy-portrait.png"
+              src="/images/kenedy-portrait.webp"
               alt="Kenedy Njume"
               fill
               sizes="240px"

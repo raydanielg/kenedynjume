@@ -54,8 +54,7 @@ export function HeroSection() {
             className="mt-6 max-w-xl text-base leading-relaxed text-ash sm:text-lg"
           >
             Unazungumza na mteja. Ameonyesha interest. Unaamini kabisa kwamba
-            unakaribia ku-close deal. Ghafla anatoa objection. Je, unajua cha
-            kumjibu?
+            unakaribia ku-close deal.
           </motion.p>
         </div>
 

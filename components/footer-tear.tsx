@@ -12,7 +12,7 @@ export function FooterTear() {
       logo={
         // eslint-disable-next-line @next/next/no-img-element
         <img
-          src="/images/logo-icon.png"
+          src="/images/logo-icon.webp"
           alt="20 Objections"
           style={{
             width: "3.2em",

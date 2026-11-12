@@ -24,17 +24,14 @@ export function BookSection() {
         <div className="order-1 lg:order-2">
           <Reveal>
             <p className="text-[11px] font-semibold tracking-[0.28em] text-ash uppercase sm:text-xs">
-              The solution
+              Nimekuandalia suluhisho!
             </p>
             <h2 className="mt-4 text-3xl leading-tight font-extrabold tracking-tight text-ink uppercase sm:text-4xl lg:text-5xl">
               20 Objections That Cost You Sales
             </h2>
 
             <div className="mt-8 border-l-2 border-navy pl-6">
-              <p className="text-xl font-extrabold tracking-tight text-ink uppercase sm:text-2xl">
-                20 Objections That Cost You Sales
-              </p>
-              <p className="mt-2 text-sm font-medium text-ash">
+              <p className="text-xl font-extrabold tracking-tight text-ink sm:text-2xl">
                 How to Handle Customer Objections and Close More Deals.
               </p>
             </div>
@@ -48,6 +45,12 @@ export function BookSection() {
             <p className="mt-6 max-w-xl rounded-2xl border border-line bg-mist p-5 font-display text-lg leading-snug text-ink italic sm:text-xl">
               “Kama unauza bidhaa au huduma yoyote, kitabu hiki ni kwa ajili
               yako.”
+            </p>
+
+            <p className="mt-6 max-w-xl text-base leading-relaxed text-ash sm:text-lg">
+              Uwekezaji wa <strong className="text-ink">TSh 30,000</strong>{" "}
+              utaboresha uwezo wako wa ku-handle objections ili zisiwe sababu
+              ya kupoteza wateja na mauzo tena.
             </p>
 
             <div className="mt-10 flex flex-col items-stretch gap-4 sm:flex-row sm:items-center">

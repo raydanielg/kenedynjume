@@ -80,11 +80,12 @@ export function HeroSection() {
             transition={{ duration: 0.7, delay: 0.9, ease }}
             className="absolute bottom-4 left-3 rounded-2xl bg-navy px-5 py-4 text-white shadow-[0_20px_40px_-16px_rgba(0,0,0,0.5)] sm:left-8"
           >
-            <p className="text-[10px] font-semibold tracking-[0.25em] text-white/60 uppercase">
-              Get your copy
-            </p>
-            <p className="mt-1 text-xl font-extrabold tracking-tight">
+            <p className="text-xl font-extrabold tracking-tight">
               TSh 30,000
+            </p>
+            <p className="mt-1 text-sm font-medium text-white/80">E book</p>
+            <p className="text-[10px] tracking-[0.2em] text-white/50 uppercase">
+              soft copy
             </p>
           </motion.div>
         </motion.div>

@@ -23,7 +23,7 @@ export function BookSection() {
               className="group relative mx-auto block w-full max-w-[390px]"
               trigger={
                 <>
-                  <BookMockup />
+                  <BookMockup priority />
                   <span className="absolute bottom-5 left-3 rounded-2xl bg-navy px-5 py-4 text-white shadow-[0_18px_36px_-14px_rgba(3,30,53,0.5)] sm:left-5">
                     <span className="block text-lg leading-tight font-extrabold tracking-tight">
                       E book

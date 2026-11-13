@@ -2,10 +2,7 @@ import type { Metadata, Viewport } from "next"
 import { Geist_Mono, Instrument_Serif, Public_Sans } from "next/font/google"
 
 import "./globals.css"
-import { ThemeProvider } from "@/components/theme-provider"
 import { MotionProvider } from "@/components/motion-provider"
-import { TooltipProvider } from "@/components/ui/tooltip"
-import { Toaster } from "@/components/ui/sonner"
 import { Analytics } from "@/components/analytics"
 import { cn } from "@/lib/utils";
 
@@ -115,13 +112,8 @@ export default function RootLayout({
       className={cn("antialiased", fontMono.variable, "font-sans", publicSans.variable, instrument.variable)}
     >
       <body>
-        <ThemeProvider forcedTheme="light">
-          <MotionProvider>
-            <TooltipProvider>{children}</TooltipProvider>
-          </MotionProvider>
-          <Toaster />
-          <Analytics />
-        </ThemeProvider>
+        <MotionProvider>{children}</MotionProvider>
+        <Analytics />
       </body>
     </html>
   )

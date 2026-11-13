@@ -29,9 +29,9 @@ const SHOTS = [
   },
   {
     src: "/images/testimonial-wa-2.webp",
-    alt: "WhatsApp testimonial — objection 04 na 10 zimemsaidia ku-close deals 04",
+    alt: "WhatsApp testimonial kutoka Tanzania — objection 04 na 10 zimemsaidia ku-close deals 04",
     quote: "“Zimeniwezesha ku-close deals 04”",
-    ratio: "1289 / 1637",
+    ratio: "1289 / 1787",
   },
 ]
 
@@ -88,7 +88,7 @@ export function TestimonialShots() {
         {TRACK.map((shot, i) => (
           <figure
             key={`${shot.src}-${i}`}
-            className="w-48 shrink-0 select-none sm:w-56 lg:w-60"
+            className="w-64 shrink-0 select-none sm:w-80 lg:w-[340px]"
             draggable={false}
           >
             {/* Dashboard-style card */}
@@ -97,15 +97,12 @@ export function TestimonialShots() {
               <div className="flex items-center gap-1.5 border-b border-line px-3 py-2">
                 <HugeiconsIcon
                   icon={WhatsappIcon}
-                  className="size-3.5 text-[#25D366]"
+                  className="size-4 text-[#25D366]"
                   strokeWidth={2.2}
                 />
-                <span className="text-[10px] font-bold tracking-[0.14em] text-ink uppercase">
-                  WhatsApp
-                </span>
                 <HugeiconsIcon
                   icon={CheckmarkBadge01Icon}
-                  className="ml-auto size-3.5 text-navy"
+                  className="ml-auto size-4 text-navy"
                   strokeWidth={1.8}
                 />
               </div>
@@ -117,13 +114,13 @@ export function TestimonialShots() {
                   src={shot.src}
                   alt={shot.alt}
                   fill
-                  sizes="(max-width: 640px) 192px, (max-width: 1024px) 224px, 240px"
+                  sizes="(max-width: 640px) 256px, (max-width: 1024px) 320px, 340px"
                   className="object-contain"
                   draggable={false}
                 />
               </div>
             </div>
-            <figcaption className="mt-3 text-center text-[11px] font-bold text-ink sm:text-xs">
+            <figcaption className="mt-3 text-center text-xs font-bold text-ink sm:text-sm">
               {shot.quote}
             </figcaption>
           </figure>

@@ -32,7 +32,7 @@ export function WhatsAppFab() {
       }
       whileHover={{ scale: 1.07 }}
       whileTap={{ scale: 0.92 }}
-      className="group fixed right-4 bottom-[calc(84px+env(safe-area-inset-bottom))] z-40 flex items-center gap-3 lg:right-8 lg:bottom-8"
+      className="group fixed right-4 bottom-[calc(1.25rem+env(safe-area-inset-bottom))] z-40 flex items-center gap-3 lg:right-8 lg:bottom-8"
     >
       {/* hover label — desktop only */}
       <span className="pointer-events-none hidden translate-x-2 rounded-full bg-navy px-4 py-2.5 text-xs font-semibold tracking-[0.08em] whitespace-nowrap text-white uppercase opacity-0 shadow-xl transition-all duration-300 group-hover:translate-x-0 group-hover:opacity-100 lg:block">

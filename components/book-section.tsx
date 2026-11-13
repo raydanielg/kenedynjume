@@ -1,65 +1,65 @@
 import { BookMockup } from "@/components/book-mockup"
 import { BookPreview } from "@/components/book-preview"
-import { WhatsAppButton } from "@/components/whatsapp-button"
 import { Reveal } from "@/components/reveal"
 
 export function BookSection() {
   return (
-    <section id="the-book" className="scroll-mt-24 overflow-hidden bg-white">
-      <div className="mx-auto grid max-w-7xl items-center gap-14 px-4 py-20 sm:px-6 lg:grid-cols-2 lg:gap-16 lg:px-8 lg:py-32">
-        <Reveal className="relative order-2 lg:order-1">
-          <BookPreview
-            className="group relative block w-full cursor-pointer"
-            trigger={
-              <>
-                <BookMockup />
-                <span className="absolute right-4 bottom-6 rounded-full bg-navy px-4 py-2 text-[10px] font-bold tracking-[0.2em] text-white uppercase shadow-lg transition-transform duration-200 group-hover:scale-105 sm:right-8">
-                  Fungua dukizo
-                </span>
-              </>
-            }
-          />
+    <section
+      id="the-book"
+      className="scroll-mt-24 border-b border-line bg-white"
+    >
+      <div className="mx-auto max-w-[900px] px-4 py-14 sm:px-6 lg:py-20">
+        <Reveal>
+          <h2 className="text-3xl leading-tight font-extrabold tracking-tight text-navy uppercase sm:text-4xl">
+            Suluhisho
+          </h2>
+          <p className="mt-5 text-lg leading-relaxed text-ink">
+            Nimekuandalia suluhisho la changamoto za customer objections
+          </p>
         </Reveal>
 
-        <div className="order-1 lg:order-2">
+        <div className="mt-10 grid items-center gap-10 sm:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)]">
           <Reveal>
-            <p className="text-[11px] font-semibold tracking-[0.28em] text-ash uppercase sm:text-xs">
-              Nimekuandalia suluhisho!
-            </p>
-            <h2 className="mt-4 text-3xl leading-tight font-extrabold tracking-tight text-ink uppercase sm:text-4xl lg:text-5xl">
+            <BookPreview
+              className="group relative mx-auto block w-full max-w-[390px] cursor-pointer"
+              trigger={
+                <>
+                  <BookMockup />
+                  <span className="absolute right-2 bottom-4 rounded-full bg-navy px-3.5 py-1.5 text-[10px] font-bold tracking-[0.18em] text-white uppercase shadow-lg transition-transform duration-200 group-hover:scale-105">
+                    Fungua dukizo
+                  </span>
+                </>
+              }
+            />
+          </Reveal>
+
+          <Reveal>
+            <h3 className="text-2xl leading-tight font-extrabold tracking-tight text-navy uppercase sm:text-3xl">
               20 Objections That Cost You Sales
-            </h2>
+            </h3>
+            <p className="mt-3 text-lg text-ash italic">
+              How to Handle Customer Objections and Close More Deals.
+            </p>
 
-            <div className="mt-8 border-l-2 border-navy pl-6">
-              <p className="text-xl font-extrabold tracking-tight text-ink sm:text-2xl">
-                How to Handle Customer Objections and Close More Deals.
+            <h4 className="mt-8 text-lg font-bold text-navy">Utajifunza:</h4>
+            <div className="mt-4 space-y-4 text-lg leading-relaxed text-ink">
+              <p>
+                Nini cha kusema, nini cha kuuliza ili uweze ku-handle kila aina
+                ya objection na ku-close deal.
+              </p>
+              <p>
+                Kama unauza bidhaa au huduma yoyote, kitabu hiki ni kwa ajili
+                yako.
               </p>
             </div>
 
-            <p className="mt-6 max-w-xl text-base leading-relaxed text-ash sm:text-lg">
-              Kitabu hiki kitakufundisha nini cha kusema na nini cha kuuliza ili
-              uweze ku-handle objections mbalimbali kutoka kwa wateja na
-              kuongeza uwezo wako wa ku-close deals.
+            <p className="mt-8 text-2xl font-extrabold text-navy">
+              BEI: TSH 30,000
             </p>
-
-            <p className="mt-6 max-w-xl rounded-2xl border border-line bg-mist p-5 font-display text-lg leading-snug text-ink italic sm:text-xl">
-              “Kama unauza bidhaa au huduma yoyote, kitabu hiki ni kwa ajili
-              yako.”
+            <p className="mt-3 text-lg leading-relaxed text-ink">
+              Wekeza kwenye maarifa yatakayokusaidia ku-handle objections na
+              kuongeza uwezo wako wa ku-close deal.
             </p>
-
-            <p className="mt-6 max-w-xl text-base leading-relaxed text-ash sm:text-lg">
-              Uwekezaji wa <strong className="text-ink">TSh 30,000</strong>{" "}
-              utaboresha uwezo wako wa ku-handle objections ili zisiwe sababu
-              ya kupoteza wateja na mauzo tena.
-            </p>
-
-            <div className="mt-10 flex flex-col items-stretch gap-4 sm:flex-row sm:items-center">
-              <WhatsAppButton label="Nunua Kitabu Sasa" />
-              <BookPreview />
-              <p className="text-xl font-extrabold tracking-tight text-ink">
-                TSh 30,000
-              </p>
-            </div>
           </Reveal>
         </div>
       </div>

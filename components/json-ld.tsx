@@ -1,5 +1,3 @@
-import { FAQS } from "@/components/faq-section"
-
 const SITE_URL = (
   process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000"
 ).replace(/\/$/, "")
@@ -53,14 +51,6 @@ export function JsonLd() {
           availability: "https://schema.org/InStock",
           url: SITE_URL,
         },
-      },
-      {
-        "@type": "FAQPage",
-        mainEntity: FAQS.map((f) => ({
-          "@type": "Question",
-          name: f.q,
-          acceptedAnswer: { "@type": "Answer", text: f.a },
-        })),
       },
     ],
   }

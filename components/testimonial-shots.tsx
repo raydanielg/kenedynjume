@@ -75,7 +75,7 @@ export function TestimonialShots() {
         {SHOTS.map((shot) => (
           <figure
             key={shot.src}
-            className="w-[80%] shrink-0 snap-center select-none sm:w-[420px]"
+            className="w-[86%] shrink-0 snap-center select-none sm:w-[460px]"
           >
             <div className="overflow-hidden rounded-2xl bg-white shadow-[0_24px_50px_-20px_rgba(3,30,53,0.4)] ring-1 ring-line transition-transform duration-300 hover:-translate-y-1.5">
               <div
@@ -86,7 +86,7 @@ export function TestimonialShots() {
                   src={shot.src}
                   alt={shot.alt}
                   fill
-                  sizes="(max-width: 640px) 80vw, 420px"
+                  sizes="(max-width: 640px) 86vw, 460px"
                   className="object-contain"
                   draggable={false}
                 />
@@ -109,7 +109,7 @@ export function TestimonialShots() {
           >
             <HugeiconsIcon icon={ArrowLeft01Icon} className="size-3.5" />
           </motion.span>
-          Swipia kuona zaidi
+          Swipe kuona zaidi
         </p>
         <div className="flex gap-1.5">
           {SHOTS.map((s, i) => (

@@ -21,12 +21,17 @@ export function BookSection() {
         <div className="mt-10 grid items-center gap-10 sm:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)]">
           <Reveal>
             <BookPreview
-              className="group relative mx-auto block w-full max-w-[390px] cursor-pointer"
+              className="group relative mx-auto block w-full max-w-[390px]"
               trigger={
                 <>
                   <BookMockup />
-                  <span className="absolute right-2 bottom-4 rounded-full bg-navy px-3.5 py-1.5 text-[10px] font-bold tracking-[0.18em] text-white uppercase shadow-lg transition-transform duration-200 group-hover:scale-105">
-                    Fungua dukizo
+                  <span className="absolute bottom-5 left-3 rounded-2xl bg-navy px-5 py-4 text-white shadow-[0_18px_36px_-14px_rgba(3,30,53,0.5)] sm:left-5">
+                    <span className="block text-lg leading-tight font-extrabold tracking-tight">
+                      E book
+                    </span>
+                    <span className="mt-1 block text-[10px] font-medium tracking-[0.22em] text-white/55 uppercase">
+                      soft copy
+                    </span>
                   </span>
                 </>
               }

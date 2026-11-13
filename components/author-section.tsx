@@ -1,16 +1,4 @@
 import { Reveal } from "@/components/reveal"
-import { ImageWithFallback } from "@/components/image-with-fallback"
-
-const TRAINING_IMAGES = [
-  {
-    src: "/images/training-2.jpg",
-    alt: "Sales professionals at a High Return Consulting workshop",
-  },
-  {
-    src: "/images/training-3.jpg",
-    alt: "Kenedy Njume training a corporate sales team",
-  },
-]
 
 export function AuthorSection() {
   return (
@@ -40,38 +28,6 @@ export function AuthorSection() {
             <p>
               Ndiyo maana nimeamua kushiriki maarifa haya kupitia kitabu hiki.
             </p>
-          </div>
-        </Reveal>
-
-        {/* Training photos — status strip */}
-        <Reveal className="mt-10">
-          <div className="grid grid-cols-3 gap-3 sm:gap-4">
-            <div className="relative aspect-[3/4] overflow-hidden rounded-xl bg-navy">
-              <ImageWithFallback
-                src="/images/book-cover-removebg-preview.png"
-                alt="20 Objections That Cost You Sales by Kenedy Njume — ebook"
-                label="Book cover"
-                className="absolute inset-0"
-                imgClassName="object-contain p-4 sm:p-8"
-                sizes="(max-width: 640px) 33vw, 30vw"
-              />
-              <p className="absolute top-3 right-3 left-3 text-center text-[8px] font-bold tracking-[0.22em] text-white/70 uppercase sm:text-[10px]">
-                Ebook · Available online
-              </p>
-              <p className="absolute right-3 bottom-3 left-3 text-center text-[8px] font-bold tracking-[0.22em] text-white uppercase sm:text-[10px]">
-                Get yours today
-              </p>
-            </div>
-            {TRAINING_IMAGES.map((img, i) => (
-              <ImageWithFallback
-                key={img.src}
-                src={img.src}
-                alt={img.alt}
-                label={`Training photo ${i + 1}`}
-                className="aspect-[3/4] w-full rounded-xl ring-1 ring-line"
-                sizes="(max-width: 640px) 33vw, 30vw"
-              />
-            ))}
           </div>
         </Reveal>
       </div>

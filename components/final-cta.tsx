@@ -10,7 +10,7 @@ export function FinalCta() {
             Pata nakala yako leo!
           </h2>
           <div className="mt-8 flex justify-center">
-            <WhatsAppButton label="Agiza E Book Sasa" icon="whatsapp" />
+            <WhatsAppButton label="Pata E Book Sasa" icon="whatsapp" />
           </div>
         </Reveal>
       </div>

@@ -1,12 +1,10 @@
 "use client"
 
 import Image from "next/image"
-import { useEffect, useRef } from "react"
+import { useRef, useState } from "react"
+import { motion, useReducedMotion } from "framer-motion"
 import { HugeiconsIcon } from "@hugeicons/react"
-import {
-  CheckmarkBadge01Icon,
-  WhatsappIcon,
-} from "@hugeicons/core-free-icons"
+import { ArrowLeft01Icon } from "@hugeicons/core-free-icons"
 
 const SHOTS = [
   {
@@ -35,77 +33,51 @@ const SHOTS = [
   },
 ]
 
-/* Duplicate the set enough times that the loop is seamless on wide screens */
-const TRACK = [...SHOTS, ...SHOTS, ...SHOTS, ...SHOTS]
-const SET_COUNT = 4
-
 export function TestimonialShots() {
   const scroller = useRef<HTMLDivElement>(null)
+  const [active, setActive] = useState(0)
+  const reduce = useReducedMotion()
 
-  useEffect(() => {
+  const scrollTo = (i: number) => {
+    const el = scroller.current
+    const slide = el?.children[i] as HTMLElement | undefined
+    slide?.scrollIntoView({
+      behavior: "smooth",
+      block: "nearest",
+      inline: "center",
+    })
+  }
+
+  const onScroll = () => {
     const el = scroller.current
     if (!el) return
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return
-
-    // start one set in, so the loop can wrap in both directions
-    const setWidth0 = el.scrollWidth / SET_COUNT
-    if (el.scrollLeft === 0 && setWidth0 > 0) el.scrollLeft = setWidth0
-
-    let raf = 0
-    let lastInteract = 0
-    const interact = () => {
-      lastInteract = performance.now()
-    }
-
-    const step = () => {
-      const setWidth = el.scrollWidth / SET_COUNT
-      if (setWidth > 0) {
-        if (performance.now() - lastInteract > 1600) {
-          el.scrollLeft += 0.55
-        }
-        // wrap within [setWidth, 2*setWidth] — identical view either side
-        while (el.scrollLeft >= 2 * setWidth) el.scrollLeft -= setWidth
-        while (el.scrollLeft <= 0) el.scrollLeft += setWidth
+    const slides = Array.from(el.children) as HTMLElement[]
+    const center = el.scrollLeft + el.clientWidth / 2
+    let best = 0
+    let bestDist = Infinity
+    slides.forEach((s, i) => {
+      const d = Math.abs(s.offsetLeft + s.offsetWidth / 2 - center)
+      if (d < bestDist) {
+        bestDist = d
+        best = i
       }
-      raf = requestAnimationFrame(step)
-    }
-    raf = requestAnimationFrame(step)
-
-    const events = ["pointerdown", "wheel", "touchstart", "touchend"] as const
-    events.forEach((e) => el.addEventListener(e, interact, { passive: true }))
-    return () => {
-      cancelAnimationFrame(raf)
-      events.forEach((e) => el.removeEventListener(e, interact))
-    }
-  }, [])
+    })
+    setActive(best)
+  }
 
   return (
     <div className="relative">
       <div
         ref={scroller}
-        className="-mx-4 flex cursor-grab items-start gap-4 overflow-x-auto px-4 pb-2 [mask-image:linear-gradient(to_right,transparent,black_6%,black_94%,transparent)] [scrollbar-width:none] active:cursor-grabbing sm:-mx-6 sm:gap-5 sm:px-6 lg:mx-0 lg:px-6 [&::-webkit-scrollbar]:hidden"
+        onScroll={onScroll}
+        className="-mx-4 flex snap-x snap-mandatory items-start gap-5 overflow-x-auto px-4 pb-2 [mask-image:linear-gradient(to_right,transparent,black_5%,black_95%,transparent)] [scrollbar-width:none] sm:-mx-6 sm:gap-6 sm:px-6 lg:mx-0 lg:px-2 [&::-webkit-scrollbar]:hidden"
       >
-        {TRACK.map((shot, i) => (
+        {SHOTS.map((shot) => (
           <figure
-            key={`${shot.src}-${i}`}
-            className="w-64 shrink-0 select-none sm:w-80 lg:w-[340px]"
-            draggable={false}
+            key={shot.src}
+            className="w-[80%] shrink-0 snap-center select-none sm:w-[420px]"
           >
-            {/* Dashboard-style card */}
-            <div className="overflow-hidden rounded-2xl bg-white shadow-[0_18px_40px_-18px_rgba(3,30,53,0.35)] ring-1 ring-line transition-transform duration-300 hover:-translate-y-1.5">
-              {/* panel header */}
-              <div className="flex items-center gap-1.5 border-b border-line px-3 py-2">
-                <HugeiconsIcon
-                  icon={WhatsappIcon}
-                  className="size-4 text-[#25D366]"
-                  strokeWidth={2.2}
-                />
-                <HugeiconsIcon
-                  icon={CheckmarkBadge01Icon}
-                  className="ml-auto size-4 text-navy"
-                  strokeWidth={1.8}
-                />
-              </div>
+            <div className="overflow-hidden rounded-2xl bg-white shadow-[0_24px_50px_-20px_rgba(3,30,53,0.4)] ring-1 ring-line transition-transform duration-300 hover:-translate-y-1.5">
               <div
                 className="relative bg-white"
                 style={{ aspectRatio: shot.ratio }}
@@ -114,21 +86,46 @@ export function TestimonialShots() {
                   src={shot.src}
                   alt={shot.alt}
                   fill
-                  sizes="(max-width: 640px) 256px, (max-width: 1024px) 320px, 340px"
+                  sizes="(max-width: 640px) 80vw, 420px"
                   className="object-contain"
                   draggable={false}
                 />
               </div>
             </div>
-            <figcaption className="mt-3 text-center text-xs font-bold text-ink sm:text-sm">
+            <figcaption className="mt-4 text-center text-xs font-bold text-ink sm:text-sm">
               {shot.quote}
             </figcaption>
           </figure>
         ))}
       </div>
-      <p className="mt-3 text-center text-[11px] font-medium tracking-[0.15em] text-ash/70 uppercase">
-        Zinatembea — sogeza kuona zaidi
-      </p>
+
+      {/* Swipe hint + dots */}
+      <div className="mt-5 flex flex-col items-center gap-3">
+        <p className="flex items-center gap-1.5 text-[11px] font-semibold tracking-[0.18em] text-ash uppercase">
+          <motion.span
+            animate={reduce ? {} : { x: [0, -6, 0] }}
+            transition={{ repeat: Infinity, duration: 1.4, ease: "easeInOut" }}
+            className="flex"
+          >
+            <HugeiconsIcon icon={ArrowLeft01Icon} className="size-3.5" />
+          </motion.span>
+          Swipia kuona zaidi
+        </p>
+        <div className="flex gap-1.5">
+          {SHOTS.map((s, i) => (
+            <button
+              key={s.src}
+              type="button"
+              aria-label={`Nenda kwa shuhuda ${i + 1}`}
+              onClick={() => scrollTo(i)}
+              className={
+                "h-1.5 rounded-full transition-all duration-300 " +
+                (i === active ? "w-6 bg-navy" : "w-1.5 bg-ash/30")
+              }
+            />
+          ))}
+        </div>
+      </div>
     </div>
   )
 }

@@ -1,6 +1,5 @@
 import { BookMockup } from "@/components/book-mockup"
 import { BookPreview } from "@/components/book-preview"
-import { Reveal } from "@/components/reveal"
 
 export function BookSection() {
   return (
@@ -9,17 +8,17 @@ export function BookSection() {
       className="scroll-mt-24 border-b border-line bg-white"
     >
       <div className="mx-auto max-w-[900px] px-4 py-14 sm:px-6 lg:py-20">
-        <Reveal>
+        <div>
           <h2 className="text-3xl leading-tight font-extrabold tracking-tight text-navy uppercase sm:text-4xl">
             Suluhisho
           </h2>
           <p className="mt-5 text-lg leading-relaxed text-ink">
             Nimekuandalia suluhisho la changamoto za customer objections
           </p>
-        </Reveal>
+        </div>
 
         <div className="mt-10 grid items-center gap-10 sm:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)]">
-          <Reveal>
+          <div>
             <BookPreview
               className="group relative mx-auto block w-full max-w-[390px]"
               trigger={
@@ -36,9 +35,9 @@ export function BookSection() {
                 </>
               }
             />
-          </Reveal>
+          </div>
 
-          <Reveal>
+          <div>
             <h3 className="text-2xl leading-tight font-extrabold tracking-tight text-navy uppercase sm:text-3xl">
               20 Objections That Cost You Sales
             </h3>
@@ -65,7 +64,7 @@ export function BookSection() {
               Wekeza kwenye maarifa yatakayokusaidia ku-handle objections na
               kuongeza uwezo wako wa ku-close deal.
             </p>
-          </Reveal>
+          </div>
         </div>
       </div>
     </section>

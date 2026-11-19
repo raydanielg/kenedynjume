@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next"
 import { Geist_Mono, Instrument_Serif, Public_Sans } from "next/font/google"
 
 import "./globals.css"
+import { Analytics as VercelAnalytics } from "@vercel/analytics/next"
 import { MotionProvider } from "@/components/motion-provider"
 import { Analytics } from "@/components/analytics"
 import { cn } from "@/lib/utils";
@@ -114,6 +115,7 @@ export default function RootLayout({
       <body>
         <MotionProvider>{children}</MotionProvider>
         <Analytics />
+        <VercelAnalytics />
       </body>
     </html>
   )
